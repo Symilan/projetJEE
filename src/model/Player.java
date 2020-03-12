@@ -11,7 +11,7 @@ public class Player {
     private Date birthDate;
     private ArrayList<String> preferedGames;
     private Integer nbPlayedSessions;
-    private Date signInDate;
+    private Date registerDate;
     private Boolean banned;
 
     @Override
@@ -25,13 +25,13 @@ public class Player {
                 Objects.equals(birthDate, player.birthDate) &&
                 Objects.equals(preferedGames, player.preferedGames) &&
                 Objects.equals(nbPlayedSessions, player.nbPlayedSessions) &&
-                Objects.equals(signInDate, player.signInDate) &&
+                Objects.equals(registerDate, player.registerDate) &&
                 Objects.equals(banned, player.banned);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, pseudo, mail, birthDate, preferedGames, nbPlayedSessions, signInDate, banned);
+        return Objects.hash(id, pseudo, mail, birthDate, preferedGames, nbPlayedSessions, registerDate, banned);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class Player {
                 ", birthDate='" + birthDate + '\'' +
                 ", preferedGames=" + preferedGames +
                 ", nbPlayedSessions=" + nbPlayedSessions +
-                ", signInDate='" + signInDate + '\'' +
+                ", registerDate='" + registerDate + '\'' +
                 ", banned=" + banned +
                 '}';
     }
@@ -51,14 +51,14 @@ public class Player {
     public Player() {
     }
 
-    public Player(Integer id, String pseudo, String mail, Date birthDate, ArrayList<String> preferedGames, Integer nbPlayedSessions, Date signInDate, Boolean banned) {
+    public Player(Integer id, String pseudo, String mail, Date birthDate, ArrayList<String> preferedGames, Integer nbPlayedSessions, Date registerDate, Boolean banned) {
         this.id = id;
         this.pseudo = pseudo;
         this.mail = mail;
         this.birthDate = birthDate;
         this.preferedGames = preferedGames;
         this.nbPlayedSessions = nbPlayedSessions;
-        this.signInDate = signInDate;
+        this.registerDate = registerDate;
         this.banned = banned;
     }
 
@@ -110,12 +110,12 @@ public class Player {
         this.nbPlayedSessions = nbPlayedSessions;
     }
 
-    public Date getSignInDate() {
-        return signInDate;
+    public Date getRegisterDate() {
+        return registerDate;
     }
 
-    public void setSignInDate(Date signInDate) {
-        this.signInDate = signInDate;
+    public void setRegisterDate(Date registerDate) {
+        this.registerDate = registerDate;
     }
 
     public Boolean getBanned() {
