@@ -34,5 +34,8 @@ public class Register {
         return getRegister().GameSessionsList;
     }
 
-    public static HashMap<Integer, Player> g(){};
+    public static HashMap<Integer, Player> getPlayersList()
+    {
+        return getRegister().PlayersList;
+    }
 }
