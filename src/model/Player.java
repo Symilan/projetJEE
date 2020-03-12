@@ -10,7 +10,7 @@ public class Player {
     private String mail;
     private Date birthDate;
     private ArrayList<String> preferedGames;
-    private Integer nbPlayedGames;
+    private Integer nbPlayedSessions;
     private Date signInDate;
     private Boolean banned;
 
@@ -24,14 +24,14 @@ public class Player {
                 Objects.equals(mail, player.mail) &&
                 Objects.equals(birthDate, player.birthDate) &&
                 Objects.equals(preferedGames, player.preferedGames) &&
-                Objects.equals(nbPlayedGames, player.nbPlayedGames) &&
+                Objects.equals(nbPlayedSessions, player.nbPlayedSessions) &&
                 Objects.equals(signInDate, player.signInDate) &&
                 Objects.equals(banned, player.banned);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, pseudo, mail, birthDate, preferedGames, nbPlayedGames, signInDate, banned);
+        return Objects.hash(id, pseudo, mail, birthDate, preferedGames, nbPlayedSessions, signInDate, banned);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class Player {
                 ", mail='" + mail + '\'' +
                 ", birthDate='" + birthDate + '\'' +
                 ", preferedGames=" + preferedGames +
-                ", nbPlayedGames=" + nbPlayedGames +
+                ", nbPlayedSessions=" + nbPlayedSessions +
                 ", signInDate='" + signInDate + '\'' +
                 ", banned=" + banned +
                 '}';
@@ -51,13 +51,13 @@ public class Player {
     public Player() {
     }
 
-    public Player(Integer id, String pseudo, String mail, Date birthDate, ArrayList<String> preferedGames, Integer nbPlayedGames, Date signInDate, Boolean banned) {
+    public Player(Integer id, String pseudo, String mail, Date birthDate, ArrayList<String> preferedGames, Integer nbPlayedSessions, Date signInDate, Boolean banned) {
         this.id = id;
         this.pseudo = pseudo;
         this.mail = mail;
         this.birthDate = birthDate;
         this.preferedGames = preferedGames;
-        this.nbPlayedGames = nbPlayedGames;
+        this.nbPlayedSessions = nbPlayedSessions;
         this.signInDate = signInDate;
         this.banned = banned;
     }
@@ -102,12 +102,12 @@ public class Player {
         this.preferedGames = preferedGames;
     }
 
-    public Integer getNbPlayedGames() {
-        return nbPlayedGames;
+    public Integer getNbPlayedSessions() {
+        return nbPlayedSessions;
     }
 
-    public void setNbPlayedGames(Integer nbPlayedGames) {
-        this.nbPlayedGames = nbPlayedGames;
+    public void setNbPlayedSessions(Integer nbPlayedSessions) {
+        this.nbPlayedSessions = nbPlayedSessions;
     }
 
     public Date getSignInDate() {

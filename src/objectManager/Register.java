@@ -38,4 +38,37 @@ public class Register {
     {
         return getRegister().PlayersList;
     }
+
+    public static void addPlayer(Player player) throws Exception {
+        if (!(getPlayersList().containsKey(player.getId())))
+        {
+            getPlayersList().put(player.getId(), player);
+        }
+        else
+        {
+            throw new Exception("Le joueur est déjà dans le Register");
+        }
+    }
+
+    public static void addGame(Game game) throws Exception {
+        if (!(getPlayersList().containsKey(game.getId())))
+        {
+            getGamesList().put(game.getId(), game);
+        }
+        else
+        {
+            throw new Exception("Le jeu est déjà dans le Register");
+        }
+    }
+
+    public static void addGameSession(GameSession gameSession) throws Exception {
+        if (!(getPlayersList().containsKey(gameSession.getId())))
+        {
+            getGameSessionsList().put(gameSession.getId(), gameSession);
+        }
+        else
+        {
+            throw new Exception("La session de jeu est déjà dans le Register");
+        }
+    }
 }

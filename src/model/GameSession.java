@@ -9,8 +9,8 @@ public class GameSession {
     private Game game;
     private Integer score;
     private Player player;
-    private Date beginDate;
-    private Date endDate;
+    private Date beginningDate;
+    private Date endingDate;
 
     @Override
     public String toString() {
@@ -20,8 +20,8 @@ public class GameSession {
                 ", game=" + game +
                 ", score=" + score +
                 ", player=" + player +
-                ", beginDate=" + beginDate +
-                ", endDate=" + endDate +
+                ", beginningDate=" + beginningDate +
+                ", endingDate=" + endingDate +
                 '}';
     }
 
@@ -35,26 +35,26 @@ public class GameSession {
                 Objects.equals(game, that.game) &&
                 Objects.equals(score, that.score) &&
                 Objects.equals(player, that.player) &&
-                Objects.equals(beginDate, that.beginDate) &&
-                Objects.equals(endDate, that.endDate);
+                Objects.equals(beginningDate, that.beginningDate) &&
+                Objects.equals(endingDate, that.endingDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, duration, game, score, player, beginDate, endDate);
+        return Objects.hash(id, duration, game, score, player, beginningDate, endingDate);
     }
 
     public GameSession() {
     }
 
-    public GameSession(Integer id, Integer duration, Game game, Integer score, Player player, Date beginDate, Date endDate) {
+    public GameSession(Integer id, Integer duration, Game game, Integer score, Player player, Date beginningDate, Date endingDate) {
         this.id = id;
         this.duration = duration;
         this.game = game;
         this.score = score;
         this.player = player;
-        this.beginDate = beginDate;
-        this.endDate = endDate;
+        this.beginningDate = beginningDate;
+        this.endingDate = endingDate;
     }
 
     public Integer getId() {
@@ -97,19 +97,19 @@ public class GameSession {
         this.player = player;
     }
 
-    public Date getBeginDate() {
-        return beginDate;
+    public Date getBeginningDate() {
+        return beginningDate;
     }
 
-    public void setBeginDate(Date beginDate) {
-        this.beginDate = beginDate;
+    public void setBeginningDate(Date beginningDate) {
+        this.beginningDate = beginningDate;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public Date getEndingDate() {
+        return endingDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setEndingDate(Date endingDate) {
+        this.endingDate = endingDate;
     }
 }
