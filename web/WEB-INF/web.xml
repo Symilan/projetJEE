@@ -7,9 +7,57 @@
         <servlet-name>Index</servlet-name>
         <servlet-class>servlets.Index</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Authentification</servlet-name>
+        <servlet-class>servlets.Authentification</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Game</servlet-name>
+        <servlet-class>servlets.Game</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GamesList</servlet-name>
+        <servlet-class>servlets.GamesList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Registration</servlet-name>
+        <servlet-class>servlets.Registration</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Settings</servlet-name>
+        <servlet-class>servlets.Settings</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Admin</servlet-name>
+        <servlet-class>servlets.Admin</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>Index</servlet-name>
         <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Authentification</servlet-name>
+        <url-pattern>/authentification</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Game</servlet-name>
+        <url-pattern>/jeu</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GamesList</servlet-name>
+        <url-pattern>listeDeJeux</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Registration</servlet-name>
+        <url-pattern>/enregistrement</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Settings</servlet-name>
+        <url-pattern>/reglages</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin</servlet-name>
+        <url-pattern>/administrateur</url-pattern>
     </servlet-mapping>
 </web-app>
