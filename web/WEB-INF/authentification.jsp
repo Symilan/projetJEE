@@ -9,8 +9,9 @@
 <html>
 <head>
     <title>Authentification</title>
+    <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-    Faut s'authentifier ici
+    <p>Faut s'authentifier ici</p>
 </body>
 </html>

@@ -1,0 +1,22 @@
+
+p {
+    font-family: Trebuchet MS, Helvetica, sans-serif;
+    font-size: 31px;
+    line-height: 150%;
+    text-align: justify;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    border: 0;
+    min-width: 0;
+    padding: 0 8px 15px 8px;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-top: 15px;
+    border-width: 2px;
+    border-style: solid;
+    color: #000300;
+    border-color: #147020;
+    border-radius: 9px;
+    background-repeat: no-repeat;
+    background-color: #e8f7e8;
+}
