@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Authentification</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <p>Faut s'authentifier ici</p>

@@ -1,7 +1,6 @@
-
-p {
+fieldset{
     font-family: Trebuchet MS, Helvetica, sans-serif;
-    font-size: 31px;
+    font-size: 13px;
     line-height: 150%;
     text-align: justify;
     -webkit-font-smoothing: antialiased;
@@ -20,3 +19,4 @@ p {
     background-repeat: no-repeat;
     background-color: #e8f7e8;
 }
+
