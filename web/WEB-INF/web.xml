@@ -46,7 +46,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GamesList</servlet-name>
-        <url-pattern>listeDeJeux</url-pattern>
+        <url-pattern>/listeDeJeux</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Registration</servlet-name>

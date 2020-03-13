@@ -11,6 +11,6 @@
     <title>Jeu</title>
 </head>
 <body>
-
+    Have fun et joue
 </body>
 </html>

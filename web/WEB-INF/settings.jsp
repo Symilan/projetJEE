@@ -11,6 +11,6 @@
     <title>Réglages</title>
 </head>
 <body>
-
+    Tout régler
 </body>
 </html>

@@ -11,6 +11,6 @@
     <title>Administrateur</title>
 </head>
 <body>
-
+    Trucs d'admin
 </body>
 </html>
