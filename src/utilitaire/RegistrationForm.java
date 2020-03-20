@@ -6,12 +6,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class RegistrationForm {
-    private static final String CHAMP_PSEUDO = "tfa_6980290243481-L";
-    private static final String CHAMP_MAIL = "tfa_6980290243482-L";
+    public static final String CHAMP_PSEUDO = "tfa_6980290243481-L";
+    public static final String CHAMP_MAIL = "tfa_6980290243482-L";
 
     private String              resultat;
 
-    private static String getValeurChamp(HttpServletRequest request, String nomChamp) {
+    public static String getValeurChamp(HttpServletRequest request, String nomChamp) {
         String valeur = request.getParameter(nomChamp);
         if (valeur == null || valeur.trim().length() == 0)
         {
