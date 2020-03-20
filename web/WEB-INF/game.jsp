@@ -11,6 +11,6 @@
     <title>Jeu</title>
 </head>
 <body>
-    Have fun et joue
+    <input type="button" value="Fin de jeu">
 </body>
 </html>
