@@ -8,7 +8,6 @@ import java.io.IOException;
 import model.*;
 import utilitaire.*;
 
-import static utilitaire.RegistrationForm.CHAMP_PSEUDO;
 
 public class Registration extends HttpServlet {
     @Override
@@ -18,6 +17,10 @@ public class Registration extends HttpServlet {
 
     public Player inscrirePlayer (HttpServletRequest request)
     {
-        String pseudo = RegistrationForm.getValeurChamp(request, CHAMP_PSEUDO );
+        String pseudo = RegistrationForm.getValeurChamp(request, RegistrationForm.CHAMP_PSEUDO);
+        String mail = RegistrationForm.getValeurChamp(request, RegistrationForm.CHAMP_MAIL);
+        return null;
+
+
     }
 }
