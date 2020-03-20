@@ -34,7 +34,7 @@
 
     <servlet-mapping>
         <servlet-name>Index</servlet-name>
-        <url-pattern>/index</url-pattern>
+        <url-pattern>/accueil</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Authentification</servlet-name>

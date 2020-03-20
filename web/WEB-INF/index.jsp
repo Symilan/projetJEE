@@ -9,8 +9,12 @@
 <html>
   <head>
     <title>Accueil</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    Bonjour
+  <fieldset id="tfa_Address" class="section">
+    <input type="button" value="Se connecter">
+    <input type="button" value="Créer un compte">
+  </fieldset>
   </body>
 </html>

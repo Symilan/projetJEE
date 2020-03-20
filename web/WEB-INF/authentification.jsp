@@ -23,7 +23,7 @@
         </div>
         <a href="/projetJEE2_war_exploded/enregistrement"><p>Pas encore de compte ? Inscris toi...</p></a>
         <input type="button" value="S'authentifier">
-        <input type="button" value="Annuler">
+        <a href="/projetJEE2_war_exploded/accueil"><input type="button" value="Annuler"></a>
     </div>
 </fieldset>
 </body>
