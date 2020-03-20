@@ -5,8 +5,6 @@ import java.util.Date;
 import java.util.Objects;
 
 public class Player {
-    private String nom;
-    private String prenom;
     private Integer id;
     private String pseudo;
     private String mail;
@@ -34,14 +32,12 @@ public class Player {
 
     @Override
     public int hashCode() {
-        return Objects.hash(nom, prenom, id, pseudo, mail, birthDate, preferedGames, nbPlayedSessions, registerDate, banned);
+        return Objects.hash(id, pseudo, mail, birthDate, preferedGames, nbPlayedSessions, registerDate, banned);
     }
 
     @Override
     public String toString() {
         return "Player{" +
-                "nom=" + nom +
-                "prenom=" + prenom +
                 "id=" + id +
                 ", pseudo='" + pseudo + '\'' +
                 ", mail='" + mail + '\'' +
@@ -56,14 +52,13 @@ public class Player {
     public Player() {
     }
 
-    public Player(String nom, String prenom){
-        this.nom = nom;
-        this.prenom = prenom;
+    public Player(Integer id, String pseudo, String mail){
+        this.id = id;
+        this.pseudo = pseudo;
+        this.mail = mail;
     }
 
-    public Player(String nom, String prenom, Integer id, String pseudo, String mail, Date birthDate, ArrayList<String> preferedGames, Integer nbPlayedSessions, Date registerDate, Boolean banned) {
-        this.nom = nom;
-        this.prenom = prenom;
+    public Player(Integer id, String pseudo, String mail, Date birthDate, ArrayList<String> preferedGames, Integer nbPlayedSessions, Date registerDate, Boolean banned) {
         this.id = id;
         this.pseudo = pseudo;
         this.mail = mail;
@@ -73,14 +68,6 @@ public class Player {
         this.registerDate = registerDate;
         this.banned = banned;
     }
-
-    public String getNom() { return nom; }
-
-    public void setNom(String nom) { this.nom = nom; }
-
-    public String getPrenom() { return prenom; }
-
-    public void setPrenom(String prenom) { this.prenom = prenom; }
 
     public Integer getId() {
         return id;

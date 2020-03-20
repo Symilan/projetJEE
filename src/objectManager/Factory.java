@@ -27,8 +27,8 @@ public class Factory {
         return game;
     }
 
-    public Player createPlayer(String nom, String prenom){
-        Player player = new Player(nom, prenom);
+    public Player createPlayer(Integer id, String pseudo, String mail){
+        Player player = new Player(id, pseudo, mail);
         try {
             Register.addPlayer(player);
         } catch (Exception e) {
@@ -37,8 +37,8 @@ public class Factory {
         return player;
     }
 
-    public Player createPlayer(String nom, String prenom, Integer id, String pseudo, String mail, Date birthDate, ArrayList<String> preferedGames, Integer nbPlayedSessions, Date registerDate, Boolean banned) {
-        Player player = new Player(nom, prenom, id, pseudo, mail, birthDate, preferedGames, nbPlayedSessions, registerDate, banned);
+    public Player createPlayer(Integer id, String pseudo, String mail, Date birthDate, ArrayList<String> preferedGames, Integer nbPlayedSessions, Date registerDate, Boolean banned) {
+        Player player = new Player(id, pseudo, mail, birthDate, preferedGames, nbPlayedSessions, registerDate, banned);
         try {
             Register.addPlayer(player);
         } catch (Exception e) {

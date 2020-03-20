@@ -5,6 +5,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import model.*;
+import utilitaire.*;
+
+import static utilitaire.RegistrationForm.CHAMP_PSEUDO;
 
 public class Registration extends HttpServlet {
     @Override
@@ -12,5 +16,8 @@ public class Registration extends HttpServlet {
         this.getServletContext().getRequestDispatcher("/WEB-INF/registration.jsp").forward(req, resp);
     }
 
-
+    public Player inscrirePlayer (HttpServletRequest request)
+    {
+        String pseudo = RegistrationForm.getValeurChamp(request, CHAMP_PSEUDO );
+    }
 }
