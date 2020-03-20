@@ -7,10 +7,14 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
+  <head>
     <title>Accueil</title>
-</head>
-<body>
-Bonjour
-</body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+  <fieldset id="tfa_Address" class="section">
+    <input type="button" value="Se connecter">
+    <input type="button" value="Créer un compte">
+  </fieldset>
+  </body>
 </html>

@@ -10,7 +10,13 @@
 <head>
     <title>Liste des jeux</title>
 </head>
-<body>
-La liste des jeux
-</body>
+<div class="sidenav">
+    <a href="">Jeu1</a>
+    <a href="">Jeu2</a>
+    <a href="">Jeu3</a>
+    <a href="">Jeu4</a>
+</div>
+<div class="main">
+    <p>Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem </p>
+</div>
 </html>
