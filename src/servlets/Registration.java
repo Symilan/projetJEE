@@ -19,7 +19,7 @@ public class Registration extends HttpServlet {
     {
         String pseudo = RegistrationForm.getValeurChamp(request, RegistrationForm.CHAMP_PSEUDO);
         String mail = RegistrationForm.getValeurChamp(request, RegistrationForm.CHAMP_MAIL);
-
+        return null;
 
 
     }
