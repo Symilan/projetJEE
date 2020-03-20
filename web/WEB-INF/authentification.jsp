@@ -8,10 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Authentification</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>servlets.Authentification</title>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <p>Faut s'authentifier ici</p>
+<p>Faut s'authentifier ici</p>
 </body>
 </html>

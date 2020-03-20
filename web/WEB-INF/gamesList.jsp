@@ -11,6 +11,6 @@
     <title>Liste des jeux</title>
 </head>
 <body>
-    La liste des jeux
+La liste des jeux
 </body>
 </html>
