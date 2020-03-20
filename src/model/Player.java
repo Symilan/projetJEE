@@ -14,6 +14,7 @@ public class Player {
     private Date registerDate;
     private Boolean banned;
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -49,6 +50,12 @@ public class Player {
     }
 
     public Player() {
+    }
+
+    public Player(Integer id, String pseudo, String mail){
+        this.id = id;
+        this.pseudo = pseudo;
+        this.mail = mail;
     }
 
     public Player(Integer id, String pseudo, String mail, Date birthDate, ArrayList<String> preferedGames, Integer nbPlayedSessions, Date registerDate, Boolean banned) {
