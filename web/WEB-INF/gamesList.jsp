@@ -17,14 +17,15 @@
         .sidenav {
             height: 100%;
             width: 160px;
-            position: fixed;
+            position: absolute;
             z-index: 1;
             top: 0;
             left: 0;
             background-color: #111;
             overflow-x: hidden;
-            overflow-y: hidden;
             padding-top: 20px;
+            display: flex;
+            flex-direction: row;
         }
 
         .sidenav a {
@@ -43,6 +44,10 @@
             overflow-y: scroll;
             scrollbar-color: rebeccapurple green;
             scrollbar-width: thin;
+            width: 100%;
+            height: 92%;
+            position: absolute;
+            bottom: 0;
         }
 
         .main {
@@ -55,6 +60,10 @@
             font-size: 26px;
             color : #147020;
             border: 3px solid #8AC007;
+            position : fixed;
+            top : 0;
+            background-color: teal;
+            height: 7%;
         }
 
         @media screen and (max-height: 450px) {
@@ -71,6 +80,21 @@
         <a href="">Jeu1</a>
         <a href="">Jeu2</a>
         <a href="">Jeu3</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
         <a href="">Jeu4</a>
         <a href="">Jeu4</a>
         <a href="">Jeu4</a>
