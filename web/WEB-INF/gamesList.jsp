@@ -23,6 +23,7 @@
             left: 0;
             background-color: #111;
             overflow-x: hidden;
+            overflow-y: hidden;
             padding-top: 20px;
         }
 
@@ -38,10 +39,22 @@
             color: #f1f1f1;
         }
 
+        .scroll{
+            overflow-y: scroll;
+            scrollbar-color: rebeccapurple green;
+            scrollbar-width: thin;
+        }
+
         .main {
             margin-left: 160px; /* Same as the width of the sidenav */
             font-size: 28px; /* Increased text to enable scrolling */
             padding: 0px 10px;
+        }
+
+        .info_corner {
+            font-size: 26px;
+            color : #147020;
+            border: 3px solid #8AC007;
         }
 
         @media screen and (max-height: 450px) {
@@ -51,14 +64,24 @@
     </style>
 </head>
 <div class="sidenav">
-    <div id="liste jeux">
+    <div id="infos_joueur" class="info_corner">
+        Infos Joueur
+    </div>
+    <div id="liste jeux" class="scroll">
         <a href="">Jeu1</a>
         <a href="">Jeu2</a>
         <a href="">Jeu3</a>
         <a href="">Jeu4</a>
-    </div>
-    <div id="infos joueur">
-        <p>info info info</p>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
+        <a href="">Jeu4</a>
     </div>
 </div>
 <div class="main" style="margin-left: 160px;">
