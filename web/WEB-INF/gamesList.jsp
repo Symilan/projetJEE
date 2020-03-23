@@ -66,6 +66,11 @@
             height: 7%;
         }
 
+        .flexbox{
+            display: flex;
+            flex-direction: column;
+        }
+
         @media screen and (max-height: 450px) {
             .sidenav {padding-top: 15px;}
             .sidenav a {font-size: 18px;}
@@ -73,8 +78,11 @@
     </style>
 </head>
 <div class="sidenav">
-    <div id="infos_joueur" class="info_corner">
-        Infos Joueur
+    <div class="flexbox">
+        <div id="infos_joueur" class="info_corner">
+            Infos Joueur
+        </div>
+        <a href="reglages"><img src="ressources/settings_wheel.png" style="height:30px; filter: invert(50%)"></a>
     </div>
     <div id="liste jeux" class="scroll">
         <a href="">Jeu1</a>
