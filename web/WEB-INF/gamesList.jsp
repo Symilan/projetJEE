@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="model.Game" %><%--
   Created by IntelliJ IDEA.
   User: virgi
   Date: 13/03/2020
@@ -85,7 +86,12 @@
         <a href="reglages"><img src="ressources/settings_wheel.png" style="height:30px; filter: invert(50%)"></a>
     </div>
     <div id="liste jeux" class="scroll">
-        <a href="">Jeu1</a>
+        <a href="">
+            <jsp:useBean id="test" class="model.Game" />
+            <!-- Initialisation de sa propriété 'prénom' : -->
+            <jsp:setProperty name="test" property="name" value="Bomberman"/>
+            <!-- Et affichage de sa valeur : -->
+            ${ test.name }</a>
         <a href="">Jeu2</a>
         <a href="">Jeu3</a>
         <a href="">Jeu4</a>
@@ -117,6 +123,17 @@
     </div>
 </div>
 <div class="main" style="margin-left: 160px;">
-    <p>Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem </p>
+    <ul>
+        <c:choose>
+            <c:when test="${empty monArrayList}">
+                pas d'information
+            </c:when>
+            <c:otherwise>
+                <c:forEach items="${monArrayList}" var="p">
+                ${p}
+            </c:forEach>
+        </c:otherwise>
+        </c:choose>
+    </ul>
 </div>
 </html>
