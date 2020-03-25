@@ -19,14 +19,14 @@
 
         .sidenav {
             height: 100%;
-            width: 160px;
+            width: 256px;
             position: absolute;
             z-index: 1;
             top: 0;
             left: 0;
             background-color: rgba(0, 0, 0, 0.79);
             overflow-x: hidden;
-            padding-top: 20px;
+            padding-top: 250px;
             display: flex;
             flex-direction: row;
         }
@@ -51,7 +51,7 @@
         }
 
         .main {
-            margin-left: 160px; /* Same as the width of the sidenav */
+            margin-left: 250px; /* Same as the width of the sidenav */
             font-size: 28px; /* Increased text to enable scrolling */
             padding: 0px 10px;
         }
@@ -64,6 +64,7 @@
             top : 0;
             background-color: teal;
             height: 7%;
+            width: 250px;
         }
 
         .flexbox{
@@ -80,7 +81,7 @@
 <div class="sidenav">
     <div class="flexbox">
         <div id="infos_joueur" class="info_corner">
-            Infos Joueur
+            ${player.pseudo}
             <a href="reglages"><img src="ressources/settings_wheel.png" style="height:30px; filter: invert(50%)"></a>
         </div>
     </div>
@@ -96,7 +97,7 @@
 </div>
 <div class="main" style="margin-left: 160px; position: fixed">
     <ul>
-        <% out.print(request.getAttribute("gameList")); %>
+
     </ul>
 </div>
 </html>

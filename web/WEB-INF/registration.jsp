@@ -37,6 +37,7 @@
         </div><br>
         <input type="submit" value="Confirmer" id="Confirmation">
         <a href="/JEEux_fr/accueil"><input type="button" value="Annuler"></a>
+        <a href="/JEEux_fr/authentification"><input type="button" value="skip (debug)"></a>
     </div>
 </fieldset>
 </form>

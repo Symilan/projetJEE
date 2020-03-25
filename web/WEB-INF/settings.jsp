@@ -37,6 +37,7 @@
         </div><br>
         <input type="button" value="Modifier">
         <a href="/JEEux_fr/listeDesJeux"><input type="button" value="Annuler"></a>
+        <a href="/JEEux_fr/accueil"><input type="button" value="Déconnexion"></a>
     </div>
 </fieldset>
 </body>
