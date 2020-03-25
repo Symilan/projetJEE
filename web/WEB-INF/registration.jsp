@@ -25,6 +25,7 @@
         </div>
         <div class="mandatory-field    " id="password-D">
             <label id="password-L" class="label preField reqMark" for="password-L">Mot de passe</label><br><div class="inputWrapper"><input type="text" id="password" name="password" value="" aria-required="true" title="Mot de passe" class="required"></div>
+            <span class="erreur">${erreurs['password']}</span>
         </div>
         <div class="mandatory-field    " id="passwordConfirmed-D">
             <label id="passwordConfirmed-L" class="label preField reqMark" for="passwordConfirmed-L">Confirmer mot de passe</label><br><div class="inputWrapper"><input type="text" id="passwordConfirmed" name="passwordConfirmed" value="" aria-required="true" title="Confirmer mot de passe" class="required"></div>

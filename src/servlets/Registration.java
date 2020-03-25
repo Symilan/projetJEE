@@ -64,16 +64,15 @@ public class Registration extends HttpServlet {
         {
             resultat = "Inscription réussie";
             player = new Player(pseudo, mail, birthDate, preferedGames);
+            req.setAttribute("player", player);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/authentification.jsp").forward(req, resp);
+
         } else
         {
-            resultat = "Incription échouée";
+            resultat = "Inscription échouée";
+            req.setAttribute("erreurs", erreurs);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/registration.jsp").forward(req, resp);
         }
-
-        req.setAttribute("erreurs", erreurs);
-        req.setAttribute("resultat", resultat);
-        System.out.println(player.toString());
-
-        this.getServletContext().getRequestDispatcher("/WEB-INF/registration.jsp").forward(req, resp);
     }
 
 
