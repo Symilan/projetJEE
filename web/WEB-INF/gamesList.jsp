@@ -1,11 +1,14 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="model.Game" %><%--
+<%@ page import="model.Game" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%--
   Created by IntelliJ IDEA.
   User: virgi
   Date: 13/03/2020
   Time: 12:14
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -22,7 +25,7 @@
             z-index: 1;
             top: 0;
             left: 0;
-            background-color: #111;
+            background-color: #FFF;
             overflow-x: hidden;
             padding-top: 20px;
             display: flex;
@@ -86,54 +89,21 @@
         <a href="reglages"><img src="ressources/settings_wheel.png" style="height:30px; filter: invert(50%)"></a>
     </div>
     <div id="liste jeux" class="scroll">
-        <a href="">
-            <jsp:useBean id="test" class="model.Game" />
-            <!-- Initialisation de sa propriété 'prénom' : -->
-            <jsp:setProperty name="test" property="name" value="Bomberman"/>
-            <!-- Et affichage de sa valeur : -->
-            ${ test.name }</a>
-        <a href="">Jeu2</a>
-        <a href="">Jeu3</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-    </div>
-</div>
-<div class="main" style="margin-left: 160px;">
-    <ul>
         <c:choose>
             <c:when test="${empty monArrayList}">
                 pas d'information
             </c:when>
             <c:otherwise>
-                <c:forEach items="${monArrayList}" var="p">
-                ${p}
-            </c:forEach>
-        </c:otherwise>
+                <c:forEach items="${monArrayList}" var="var">
+                    <a href="">${var}</a>
+                </c:forEach>
+            </c:otherwise>
         </c:choose>
+    </div>
+</div>
+<div class="main" style="margin-left: 160px;">
+    <ul>
+        <% out.print(request.getAttribute("gameList")); %>
     </ul>
 </div>
 </html>
