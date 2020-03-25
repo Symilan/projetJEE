@@ -58,6 +58,13 @@ public class Player {
         this.mail = mail;
     }
 
+    public Player(String pseudo, String mail, String birthDate, String preferedGames) {
+        this.pseudo = pseudo;
+        this.mail = mail;
+        this.birthDate = birthDate;
+        this.preferedGames = preferedGames;
+    }
+
     public Player(Integer id, String pseudo, String mail, String birthDate, String preferedGames, Integer nbPlayedSessions, Date registerDate, Boolean banned) {
         this.id = id;
         this.pseudo = pseudo;
