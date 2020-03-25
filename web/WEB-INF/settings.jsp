@@ -36,7 +36,7 @@
             <label id="tfa_6980290244512-L" class="label preField reqMark" for="tfa_6980290244512">Date de naissance (jj-mm-aaaa) </label><br><div class="inputWrapper"><input type="text" id="tfa_6980290244512" name="tfa_6980290244512" value="" aria-required="true" autoformat="##" title="Date de naissance (jj) " class="calc-DOB required" disabled>/<input type="text" id="tfa_6980290244514" name="tfa_6980290244514" value="" aria-required="true" autoformat="##" title="Date de naissance (mm) " class="calc-DOB required" disabled>/<input type="text" id="tfa_6980290244513" name="tfa_6980290244513" value="" aria-required="true" autoformat="####" title="Date de naissance (aaaa) " class="calc-DOB required" disabled></div>
         </div><br>
         <input type="button" value="Modifier">
-        <a href="/projetJEE2_war_exploded/listeDesJeux"><input type="button" value="Annuler"></a>
+        <a href="/JEEux_fr/listeDesJeux"><input type="button" value="Annuler"></a>
     </div>
 </fieldset>
 </body>
