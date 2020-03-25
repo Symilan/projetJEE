@@ -33,9 +33,9 @@
             <label id="preferredGames-L" class="label preField " for="preferredGames">Jeux préférés</label><br><div class="inputWrapper"><textarea id="preferredGames" name="preferredGames" title="Jeux préférés" class=""></textarea></div>
         </div>
         <div class="mandatory-field    " id="birthdate-D">
-            <label id="birthdate-L" class="label preField reqMark" for="birthdate">Date de naissance (jj-mm-aaaa) </label><br><div class="inputWrapper"><input type="text" id="birthdate" name="birthdate" value="" aria-required="true" autoformat="##" title="Date de naissance (jj) " class="calc-DOB required">/<input type="text" id="tfa_6980290244514" name="tfa_6980290244514" value="" aria-required="true" autoformat="##" title="Date de naissance (mm) " class="calc-DOB required">/<input type="text" id="tfa_6980290244513" name="tfa_6980290244513" value="" aria-required="true" autoformat="####" title="Date de naissance (aaaa) " class="calc-DOB required"></div>
+            <label id="birthdate-L" class="label preField reqMark" for="birthdate">Date de naissance (jj-mm-aaaa) </label><br><div class="inputWrapper"><input type="text" id="birthdate" name="birthdate_day" value="" aria-required="true" autoformat="##" title="Date de naissance (jj) " class="calc-DOB required">/<input type="text" id="tfa_6980290244514" name="birthdate_month" value="" aria-required="true" autoformat="##" title="Date de naissance (mm) " class="calc-DOB required">/<input type="text" id="tfa_6980290244513" name="birthdate_year" value="" aria-required="true" autoformat="####" title="Date de naissance (aaaa) " class="calc-DOB required"></div>
         </div><br>
-        <input type="submit" onclick value="Confirmer" id="Confirmation">
+        <input type="submit" value="Confirmer" id="Confirmation">
         <a href="/projetJEE_war_exploded/accueil"><input type="button" value="Annuler"></a>
     </div>
 </fieldset>

@@ -6,8 +6,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class RegistrationForm {
-    public static final String CHAMP_PSEUDO = "tfa_6980290243481-L";
-    public static final String CHAMP_MAIL = "tfa_6980290243482-L";
+    public static final String CHAMP_PSEUDO = "pseudo";
+    public static final String CHAMP_MAIL = "mailAdress";
+    public static final String CHAMP_MOTDEPASSE = "password";
+    public static final String CHAMP_CONF_MOTDEPASSE = "passwordConfirmed";
+    public static final String CHAMP_PREFERREDGAMES = "preferredGames";
+    public static final String CHAMP_DATENAISSANCE_JOUR = "birthdate_day";
+    public static final String CHAMP_DATENAISSANCE_MOIS = "birthdate_month";
+    public static final String CHAMP_DATENAISSANCE_ANNEE = "birthdate_year";
 
     private String resultat;
     public static String getValeurChamp(HttpServletRequest request, String nomChamp) {

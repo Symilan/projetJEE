@@ -8,8 +8,8 @@ public class Player {
     private Integer id;
     private String pseudo;
     private String mail;
-    private Date birthDate;
-    private ArrayList<String> preferedGames;
+    private String birthDate;
+    private String preferedGames;
     private Integer nbPlayedSessions;
     private Date registerDate;
     private Boolean banned;
@@ -58,7 +58,7 @@ public class Player {
         this.mail = mail;
     }
 
-    public Player(Integer id, String pseudo, String mail, Date birthDate, ArrayList<String> preferedGames, Integer nbPlayedSessions, Date registerDate, Boolean banned) {
+    public Player(Integer id, String pseudo, String mail, String birthDate, String preferedGames, Integer nbPlayedSessions, Date registerDate, Boolean banned) {
         this.id = id;
         this.pseudo = pseudo;
         this.mail = mail;
@@ -93,19 +93,19 @@ public class Player {
         this.mail = mail;
     }
 
-    public Date getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 
-    public ArrayList<String> getPreferedGames() {
+    public String getPreferedGames() {
         return preferedGames;
     }
 
-    public void setPreferedGames(ArrayList<String> preferedGames) {
+    public void setPreferedGames(String preferedGames) {
         this.preferedGames = preferedGames;
     }
 
