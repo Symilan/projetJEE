@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<form method="post" action="enregistrement">
 <fieldset id="tfa_Address" class="section">
     <legend id="tfa_Address-L"><b>Information de base </b></legend>
     <div id="tfa_6980290244516" class="section inline group">
@@ -34,9 +35,10 @@
         <div class="oneField field-container-D    " id="tfa_6980290244512-D">
             <label id="tfa_6980290244512-L" class="label preField reqMark" for="tfa_6980290244512">Date de naissance (jj-mm-aaaa) </label><br><div class="inputWrapper"><input type="text" id="tfa_6980290244512" name="tfa_6980290244512" value="" aria-required="true" autoformat="##" title="Date de naissance (jj) " class="calc-DOB required">/<input type="text" id="tfa_6980290244514" name="tfa_6980290244514" value="" aria-required="true" autoformat="##" title="Date de naissance (mm) " class="calc-DOB required">/<input type="text" id="tfa_6980290244513" name="tfa_6980290244513" value="" aria-required="true" autoformat="####" title="Date de naissance (aaaa) " class="calc-DOB required"></div>
         </div><br>
-        <input type="submit" value="Confirmer" id="Confirmation">
+        <input type="submit" onclick value="Confirmer" id="Confirmation">
         <a href="/projetJEE_war_exploded/accueil"><input type="button" value="Annuler"></a>
     </div>
 </fieldset>
+</form>
 </body>
 </html>
