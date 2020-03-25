@@ -1,6 +1,5 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="model.Game" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%--
   Created by IntelliJ IDEA.
   User: virgi
@@ -25,7 +24,7 @@
             z-index: 1;
             top: 0;
             left: 0;
-            background-color: #FFF;
+            background-color: rgba(0, 0, 0, 0.79);
             overflow-x: hidden;
             padding-top: 20px;
             display: flex;
@@ -45,9 +44,6 @@
         }
 
         .scroll{
-            overflow-y: scroll;
-            scrollbar-color: rebeccapurple green;
-            scrollbar-width: thin;
             width: 100%;
             height: 92%;
             position: absolute;
@@ -85,23 +81,20 @@
     <div class="flexbox">
         <div id="infos_joueur" class="info_corner">
             Infos Joueur
+            <a href="reglages"><img src="ressources/settings_wheel.png" style="height:30px; filter: invert(50%)"></a>
         </div>
-        <a href="reglages"><img src="ressources/settings_wheel.png" style="height:30px; filter: invert(50%)"></a>
     </div>
     <div id="liste jeux" class="scroll">
-        <c:choose>
-            <c:when test="${empty monArrayList}">
-                pas d'information
-            </c:when>
-            <c:otherwise>
-                <c:forEach items="${monArrayList}" var="var">
-                    <a href="">${var}</a>
-                </c:forEach>
-            </c:otherwise>
-        </c:choose>
+        <%
+            ArrayList<model.Game> gameList = (ArrayList<model.Game>) request.getAttribute("gameList");
+            for (Game game : gameList)
+            {
+                out.println("<a href=<\"\">"+game.getName()+"</a>");
+            }
+        %>
     </div>
 </div>
-<div class="main" style="margin-left: 160px;">
+<div class="main" style="margin-left: 160px; position: fixed">
     <ul>
         <% out.print(request.getAttribute("gameList")); %>
     </ul>

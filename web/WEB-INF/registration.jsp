@@ -36,7 +36,7 @@
             <label id="birthdate-L" class="label preField reqMark" for="birthdate">Date de naissance (jj-mm-aaaa) </label><br><div class="inputWrapper"><input type="text" id="birthdate" name="birthdate_day" value="" aria-required="true" autoformat="##" title="Date de naissance (jj) " class="calc-DOB required">/<input type="text" id="tfa_6980290244514" name="birthdate_month" value="" aria-required="true" autoformat="##" title="Date de naissance (mm) " class="calc-DOB required">/<input type="text" id="tfa_6980290244513" name="birthdate_year" value="" aria-required="true" autoformat="####" title="Date de naissance (aaaa) " class="calc-DOB required"></div>
         </div><br>
         <input type="submit" value="Confirmer" id="Confirmation">
-        <a href="/projetJEE_war_exploded/accueil"><input type="button" value="Annuler"></a>
+        <a href="/JEEux_fr/accueil"><input type="button" value="Annuler"></a>
     </div>
 </fieldset>
 </form>

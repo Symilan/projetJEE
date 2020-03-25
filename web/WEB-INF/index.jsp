@@ -13,8 +13,8 @@
   </head>
   <body>
   <fieldset id="tfa_Address" class="section">
-    <input type="button" value="Se connecter">
-    <input type="button" value="Créer un compte">
+    <a href="/JEEux_fr/authentification"><input type="button" value="Se connecter"></a>
+    <a href="/JEEux_fr/enregistrement"><input type="button" value="Créer un compte"></a>
   </fieldset>
   </body>
 </html>
