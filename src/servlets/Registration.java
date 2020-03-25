@@ -15,12 +15,35 @@ public class Registration extends HttpServlet {
         this.getServletContext().getRequestDispatcher("/WEB-INF/registration.jsp").forward(req, resp);
     }
 
+    @Override
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
+        Player player = inscrirePlayer(req);
+
+
+        req.setAttribute("Player", player);
+
+        this.getServletContext().getRequestDispatcher("/WEB-INF/registration.jsp").forward(req, resp);
+    }
+
+
+
     public Player inscrirePlayer (HttpServletRequest request)
     {
         String pseudo = RegistrationForm.getValeurChamp(request, RegistrationForm.CHAMP_PSEUDO);
         String mail = RegistrationForm.getValeurChamp(request, RegistrationForm.CHAMP_MAIL);
-        return null;
+
+        Player player = new Player();
+
+        //try-catch
+        player.setMail(mail);
+        player.setPseudo(pseudo);
 
 
+
+
+        return player;
     }
+
+
 }
