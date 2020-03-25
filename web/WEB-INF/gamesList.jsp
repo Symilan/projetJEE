@@ -1,3 +1,6 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="model.Game" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%--
   Created by IntelliJ IDEA.
   User: virgi
@@ -5,6 +8,7 @@
   Time: 12:14
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -21,7 +25,7 @@
             z-index: 1;
             top: 0;
             left: 0;
-            background-color: #111;
+            background-color: #FFF;
             overflow-x: hidden;
             padding-top: 20px;
             display: flex;
@@ -85,38 +89,21 @@
         <a href="reglages"><img src="ressources/settings_wheel.png" style="height:30px; filter: invert(50%)"></a>
     </div>
     <div id="liste jeux" class="scroll">
-        <a href="">Jeu1</a>
-        <a href="">Jeu2</a>
-        <a href="">Jeu3</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
-        <a href="">Jeu4</a>
+        <c:choose>
+            <c:when test="${empty monArrayList}">
+                pas d'information
+            </c:when>
+            <c:otherwise>
+                <c:forEach items="${monArrayList}" var="var">
+                    <a href="">${var}</a>
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
     </div>
 </div>
 <div class="main" style="margin-left: 160px;">
-    <p>Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem Ipsem </p>
+    <ul>
+        <% out.print(request.getAttribute("gameList")); %>
+    </ul>
 </div>
 </html>

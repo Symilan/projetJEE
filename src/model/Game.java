@@ -8,6 +8,7 @@ public class Game {
     private Integer nbPlayedSessions;
     private Boolean activated;
 
+
     @Override
     public String toString() {
         return "Game{" +

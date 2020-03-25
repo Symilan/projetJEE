@@ -17,23 +17,23 @@
 <fieldset id="tfa_Address" class="section">
     <legend id="tfa_Address-L"><b>Information de base </b></legend>
     <div id="tfa_6980290244516" class="section inline group">
-        <div class="oneField field-container-D    " id="tfa_6980290243481-D">
-            <label id="tfa_6980290243481-L" class="label preField reqMark" for="tfa_6980290243481">Pseudo</label><br><div class="inputWrapper"><input type="text" id="tfa_6980290243481" name="tfa_6980290243481" value="" aria-required="true" title="Pseudo" class="required"></div>
+        <div class="mandatory-field    " id="pseudo-D">
+            <label id="pseudo-L" class="label preField reqMark" for="pseudo">Pseudo</label><br><div class="inputWrapper"><input type="text" id="pseudo" name="pseudo" value="" aria-required="true" title="Pseudo" class="required"></div>
         </div>
-        <div class="oneField field-container-D    " id="tfa_6980290243482-D">
-            <label id="tfa_6980290243482-L" class="label preField reqMark" for="tfa_6980290243482">Adresse mail</label><br><div class="inputWrapper"><input type="text" id="tfa_6980290243482" name="tfa_6980290243482" value="" aria-required="true" title="Adresse mail" class="required"></div>
+        <div class="mandatory-field    " id="mailAdress-D">
+            <label id="mailAdress-L" class="label preField reqMark" for="mailAdress-L">Adresse mail</label><br><div class="inputWrapper"><input type="text" id="mailAdress" name="mailAdress" value="" aria-required="true" title="Adresse mail" class="required"></div>
         </div>
-        <div class="oneField field-container-D    " id="tfa_6980290243483-D">
-            <label id="tfa_6980290243483-L" class="label preField reqMark" for="tfa_6980290243483">Mot de passe</label><br><div class="inputWrapper"><input type="text" id="tfa_6980290243483" name="tfa_6980290243483" value="" aria-required="true" title="Mot de passe" class="required"></div>
+        <div class="mandatory-field    " id="password-D">
+            <label id="password-L" class="label preField reqMark" for="password-L">Mot de passe</label><br><div class="inputWrapper"><input type="text" id="password" name="password" value="" aria-required="true" title="Mot de passe" class="required"></div>
         </div>
-        <div class="oneField field-container-D    " id="tfa_6980290243484-D">
-            <label id="tfa_6980290243484-L" class="label preField reqMark" for="tfa_6980290243481">Confirmer mot de passe</label><br><div class="inputWrapper"><input type="text" id="tfa_6980290243484" name="tfa_6980290243484" value="" aria-required="true" title="Confirmer mot de passe" class="required"></div>
+        <div class="mandatory-field    " id="passwordConfirmed-D">
+            <label id="passwordConfirmed-L" class="label preField reqMark" for="passwordConfirmed-L">Confirmer mot de passe</label><br><div class="inputWrapper"><input type="text" id="passwordConfirmed" name="passwordConfirmed" value="" aria-required="true" title="Confirmer mot de passe" class="required"></div>
         </div>
-        <div class="oneField field-container-D    " id="tfa_6980290244525-D">
-            <label id="tfa_6980290244525-L" class="label preField " for="tfa_6980290244525">Jeux préférés</label><br><div class="inputWrapper"><textarea id="tfa_6980290244525" name="tfa_6980290244525" title="Jeux préférés" class=""></textarea></div>
+        <div class="mandatory-field    " id="preferredGames-D">
+            <label id="preferredGames-L" class="label preField " for="preferredGames">Jeux préférés</label><br><div class="inputWrapper"><textarea id="preferredGames" name="preferredGames" title="Jeux préférés" class=""></textarea></div>
         </div>
-        <div class="oneField field-container-D    " id="tfa_6980290244512-D">
-            <label id="tfa_6980290244512-L" class="label preField reqMark" for="tfa_6980290244512">Date de naissance (jj-mm-aaaa) </label><br><div class="inputWrapper"><input type="text" id="tfa_6980290244512" name="tfa_6980290244512" value="" aria-required="true" autoformat="##" title="Date de naissance (jj) " class="calc-DOB required">/<input type="text" id="tfa_6980290244514" name="tfa_6980290244514" value="" aria-required="true" autoformat="##" title="Date de naissance (mm) " class="calc-DOB required">/<input type="text" id="tfa_6980290244513" name="tfa_6980290244513" value="" aria-required="true" autoformat="####" title="Date de naissance (aaaa) " class="calc-DOB required"></div>
+        <div class="mandatory-field    " id="birthdate-D">
+            <label id="birthdate-L" class="label preField reqMark" for="birthdate">Date de naissance (jj-mm-aaaa) </label><br><div class="inputWrapper"><input type="text" id="birthdate" name="birthdate" value="" aria-required="true" autoformat="##" title="Date de naissance (jj) " class="calc-DOB required">/<input type="text" id="tfa_6980290244514" name="tfa_6980290244514" value="" aria-required="true" autoformat="##" title="Date de naissance (mm) " class="calc-DOB required">/<input type="text" id="tfa_6980290244513" name="tfa_6980290244513" value="" aria-required="true" autoformat="####" title="Date de naissance (aaaa) " class="calc-DOB required"></div>
         </div><br>
         <input type="submit" onclick value="Confirmer" id="Confirmation">
         <a href="/projetJEE_war_exploded/accueil"><input type="button" value="Annuler"></a>
