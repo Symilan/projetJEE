@@ -36,7 +36,10 @@
             <label id="preferredGames-L" for="preferredGames">Jeux préférés :</label><br><textarea id="preferredGames" name="preferredGames" title="Jeux préférés" style="width: 100%" placeholder="ex : Minecraft, Legends of Runeterra, Darkest Dungeons"></textarea>
         </div>
         <div id="birthdate-D" class="registration_paragraph">
-            <label id="birthdate-L" for="birthdate">Date de naissance (jj-mm-aaaa) : </label><br><input type="text" id="birthdate" name="birthdate_day" value="" autoformat="##" title="Date de naissance (jj)" style="width: 32%" placeholder="ex : 02">/<input type="text" id="tfa_6980290244514" name="birthdate_month" value="" autoformat="##" title="Date de naissance (mm) " style="width: 32%" placeholder="ex : 11">/<input type="text" id="tfa_6980290244513" name="birthdate_year" value="" autoformat="####" title="Date de naissance (aaaa)" style="width: 32%" placeholder="ex : 2003">
+            <label id="birthdate-L" for="birthdate">Date de naissance (jj-mm-aaaa) : </label><br>
+            <input type="text" id="birthdate" name="birthdate_day" value="" autoformat="##" title="Date de naissance (jj)" style="width: 32%" placeholder="ex : 02">/
+            <input type="text" id="tfa_6980290244514" name="birthdate_month" value="" autoformat="##" title="Date de naissance (mm) " style="width: 32%" placeholder="ex : 11">/
+            <input type="text" id="tfa_6980290244513" name="birthdate_year" value="" autoformat="####" title="Date de naissance (aaaa)" style="width: 32%" placeholder="ex : 2003">
         </div>
         <input type="submit" value="Confirmer" id="Confirmation" class="button">
         <a href="/JEEux_fr/accueil"><input type="button" value="Annuler" class="button"></a>

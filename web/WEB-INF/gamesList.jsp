@@ -1,5 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="model.Game" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: virgi
@@ -12,11 +13,8 @@
 <html>
 <head>
     <title>Liste des jeux</title>
+    <link rel="stylesheet" href="ressources/style.css" />
     <style>
-        body {
-            font-family: "Lato", sans-serif;
-        }
-
         .sidenav {
             height: 100%;
             width: 256px;
