@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Date;
 
 public class RegistrationForm {
     public static final String CHAMP_PSEUDO = "pseudo";
@@ -79,6 +80,34 @@ public class RegistrationForm {
         else
         {
             throw new Exception("Veuillez renseigner un pseudo");
+        }
+    }
+
+    public static void validationDate(String dateDay, String dateMonth, String dateYear) throws Exception
+    {
+        if (dateDay != null && dateMonth != null && dateYear != null)
+        {
+            if (dateDay.trim().length() != 2 || dateMonth.trim().length() != 2 || dateYear.trim().length() != 4)
+            {
+                throw new Exception("Veuillez rentrer une date de naissance au format DD-MM-YYYY");
+            }
+            else if (!dateDay.matches("[0-9][0-9]") || !dateMonth.matches("[0-9][0-9]") || !dateYear.matches("[0-9][0-9][0-9][0-9]"))
+            {
+                throw new Exception("Caractère non reconnu dans la date, veuillez n'utiliser que des chiffres");
+            }
+            else
+            {
+                int day = Integer.parseInt(dateDay);
+                int month = Integer.parseInt(dateMonth);
+                int year = Integer.parseInt(dateYear);
+                if (day > 31 || day < 1 || month > 12 || month < 1 || year > (new Date().getYear()) || year < 1900)
+                {
+                    throw new Exception("Cette date n'est pas valide");
+                }
+            }
+        } else
+        {
+            throw new Exception("Veuillez remplir votre date de naissance");
         }
     }
 }

@@ -66,10 +66,21 @@ public class Registration extends HttpServlet {
             erreurs.put(CHAMP_MOTDEPASSE, e.getMessage());
         }
 
-        valeurs.put(CHAMP_PREFEREDGAMES, preferedGames);
+
+        try
+        {
+            validationDate(birthDate_day, birthDate_month, birthDate_year);
+        }
+        catch (Exception e)
+        {
+            erreurs.put(CHAMP_DATENAISSANCE_ANNEE, e.getMessage());
+        }
+
         valeurs.put(CHAMP_DATENAISSANCE_JOUR, birthDate_day);
         valeurs.put(CHAMP_DATENAISSANCE_MOIS, birthDate_month);
         valeurs.put(CHAMP_DATENAISSANCE_ANNEE, birthDate_year);
+
+        valeurs.put(CHAMP_PREFEREDGAMES, preferedGames);
 
         if (erreurs.isEmpty())
         {
