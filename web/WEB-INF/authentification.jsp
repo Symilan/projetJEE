@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="ressources/style.css" />
 </head>
 <body class="main">
-<form method="post" action="enregistrement">
+<form method="post" action="authentification">
 <fieldset id="tfa_Address">
     <legend><b>Connexion </b></legend>
     <div class="to_the_right">

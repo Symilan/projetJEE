@@ -18,7 +18,7 @@ public class Authentification extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         Player player = new Player(3, "Jean-Eudes", "letest");
-        setCookie(resp, COOKIE_PLAYER, player.toString(), COOKIE_MAX_AGE);
+        setCookie(resp, COOKIE_PLAYER, player.getId().toString(), COOKIE_MAX_AGE);
         this.getServletContext().getRequestDispatcher("/WEB-INF/gamesList.jsp").forward(req, resp);
 
     }
