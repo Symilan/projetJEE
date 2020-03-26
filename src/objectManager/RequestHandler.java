@@ -126,12 +126,34 @@ public class RequestHandler {
         return id ;
     }
 
+    public Player getPlayerFromId(Integer id)
+    {
+        PreparedStatement statement = null;
+        ResultSet result=null;
+        Player player=null;
+        try{
+            this.connect();
+            statement=connexion.prepareStatement("SELECT pseudo,mail,birth_date,prefered_games,nb_game_sessions,register_date,banned FROM user WHERE id=?;");
+            statement.setInt(1,id);
+            System.out.println(statement);
+            result=statement.executeQuery();
+            while (result.next()){
+                String pseudo = result.getString("pseudo");
+                String mail = result.getString("mail");
+                String birthDate = result.getString("birth_date");
+                String preferedGames = result.getString("prefered_games");
+                Integer nbPlayedSessions = result.getInt("nb_game_sessions");
+                Date registerDate = result.getDate("register_date");
+                Boolean banned = result.getBoolean("banned");
+            }
+            connexion.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return player;
+    }
+
     public static void main(String[] args) {
-        Player noob ;
-        RequestHandler req = new RequestHandler();
-        req.connect();
-        req.register("legend27","memssat@enssat.fr","azerty12345","Minecraft,ECTS Hunter","01/09/1986");
-        noob = req.authenticate("legend27","azerty12345");
-        System.out.println(noob);
+        System.out.println(RequestHandler.getRequestHandler().getPlayerFromId(8161));
     }
 }

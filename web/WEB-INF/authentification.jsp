@@ -17,8 +17,8 @@
     <legend><b>Connexion </b></legend>
     <div class="to_the_right">
         <div>
-            <label id="tfa_6980290243481-L" class="label preField reqMark" for="tfa_6980290243481">Pseudo :</label><input type="text" id="tfa_6980290243481" name="tfa_6980290243481" value="${pseudo}" aria-required="true" title="Pseudo" class="auth_field">
-            <label id="tfa_6980290243483-L" class="label preField reqMark" for="tfa_6980290243483">Mot de passe :</label><input type="text" id="tfa_6980290243483" name="tfa_6980290243483" value="" aria-required="true" title="Mot de passe" class="auth_field">
+            <label id="pseudo-L" class="label preField reqMark" for="pseudo">Pseudo :</label><input type="text" id="pseudo" name="pseudo" value="${pseudo}" title="Pseudo" class="auth_field">
+            <label id="password-L" class="label preField reqMark" for="password">Mot de passe :</label><input type="password" id="password" name="password" value="" title="Mot de passe" class="auth_field">
             <span class="erreur">${error}</span>
         </div>
         <a href="/JEEux_fr/enregistrement" class="hyperlink"><p>Pas encore de compte ? Inscris toi...</p></a>
