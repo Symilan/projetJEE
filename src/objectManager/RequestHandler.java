@@ -16,13 +16,22 @@ public class RequestHandler {
     private String motDePasse = "vamt_JEEux_fr";
     protected Connection connexion = null;
 
-    public RequestHandler(){
+    private RequestHandler(){
         /* Chargement du driver JDBC pour MySQL */
         try {
             Class.forName( "com.mysql.jdbc.Driver" );
         } catch ( ClassNotFoundException e ) {
             /* Gérer les éventuelles erreurs ici. */
         }
+    }
+
+    private static class RequestHandlerHolder {
+        private static final RequestHandler MAIN_REQUEST_HANDLER_FACADE=new RequestHandler();
+    }
+
+    public static RequestHandler getRequestHandler()
+    {
+        return RequestHandlerHolder.MAIN_REQUEST_HANDLER_FACADE;
     }
 
     protected void connect(){

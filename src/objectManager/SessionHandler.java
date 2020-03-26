@@ -1,6 +1,6 @@
 package objectManager;
 
-import model.SessionType;
+import model.Player;
 
 public class SessionHandler {
     private SessionHandler() {
@@ -15,8 +15,9 @@ public class SessionHandler {
         return SessionHandlerHolder.MAIN_SESSION_HANDLER_FACADE;
     }
 
-    public SessionType getSessionFromHash(String id, int hashedPassword)
+    public Player getSessionFromHash(String id, int hashedPassword)
     {
-        return SessionType.Error;
+
+        return new Player();
     }
 }
