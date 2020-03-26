@@ -27,7 +27,8 @@ public class Registration extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         String resultat;
-        Map<String, String> erreurs = new HashMap<String, String>() ;
+        Map<String, String> erreurs = new HashMap<String, String>();
+        Map<String, String> valeurs = new HashMap<String, String>();
         String pseudo = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_PSEUDO);
         String mail = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_MAIL);
         String password = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_MOTDEPASSE);
@@ -43,6 +44,7 @@ public class Registration extends HttpServlet {
         } catch (Exception e) {
             erreurs.put(CHAMP_MAIL, e.getMessage());
         }
+        valeurs.put(CHAMP_MAIL, mail);
 
         try
         {
@@ -51,6 +53,7 @@ public class Registration extends HttpServlet {
         {
             erreurs.put(CHAMP_PSEUDO, e.getMessage());
         }
+        valeurs.put(CHAMP_PSEUDO, pseudo);
 
         try
         {
@@ -59,6 +62,7 @@ public class Registration extends HttpServlet {
         {
             erreurs.put(CHAMP_MOTDEPASSE, e.getMessage());
         }
+
 
         if (erreurs.isEmpty())
         {
@@ -72,6 +76,7 @@ public class Registration extends HttpServlet {
         {
             resultat = "Inscription échouée";
             req.setAttribute("erreurs", erreurs);
+            req.setAttribute("valeurs", valeurs);
             this.getServletContext().getRequestDispatcher("/WEB-INF/registration.jsp").forward(req, resp);
         }
     }
