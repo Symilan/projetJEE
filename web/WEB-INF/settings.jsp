@@ -35,9 +35,7 @@
         </div>
         <div id="tfa_6980290244512-D" class="registration_paragraph">
             <label id="tfa_6980290244512-L" for="tfa_6980290244512">Date de naissance (jj-mm-aaaa) :</label><br>
-            <input type="text" id="tfa_6980290244512" name="tfa_6980290244512" value="" autoformat="##" title="Date de naissance (jj) " disabled style="width: 32%">/
-            <input type="text" id="tfa_6980290244514" name="tfa_6980290244514" value="" autoformat="##" title="Date de naissance (mm) " disabled style="width: 32%">/
-            <input type="text" id="tfa_6980290244513" name="tfa_6980290244513" value="" autoformat="####" title="Date de naissance (aaaa)" disabled style="width: 32%"></div>
+            <input type="text" id="tfa_6980290244512" name="tfa_6980290244512" value="" autoformat="##" title="Date de naissance (jj) " disabled style="width: 32%">/<input type="text" id="tfa_6980290244514" name="tfa_6980290244514" value="" autoformat="##" title="Date de naissance (mm) " disabled style="width: 32%">/<input type="text" id="tfa_6980290244513" name="tfa_6980290244513" value="" autoformat="####" title="Date de naissance (aaaa)" disabled style="width: 32%"></div>
         </div><br>
         <input type="button" value="Modifier" class="button">
         <a href="/JEEux_fr/listeDesJeux"><input type="button" value="Annuler" class="button"></a>

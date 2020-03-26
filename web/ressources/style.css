@@ -1,4 +1,5 @@
 body{
+    background-color: #969696;
     font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
     color: #2e2e2e;
     border-collor : #2e2e2e;
@@ -10,6 +11,7 @@ body{
     position: fixed;
     height: 100%;
     width: 100%;
+    margin: 0px 0px 0px 0px;
 }
 
 input[type="text"], input[type="password"], textarea {
@@ -84,15 +86,10 @@ b{
 fieldset {
     line-height: 150%;
     text-align: justify;
-    margin: 0;
-    border: 0;
     min-width: 0;
     padding: 0 8px 15px 8px;
-    margin-left: 6px;
-    margin-right: 6px;
-    margin-top: 15px;
-    border-width: 3px;
-    border-style: solid;
+    margin: 15px 6px 0;
+    border: 3px solid;
     border-radius: 9px;
     background-color: #76C2AF;
 }
@@ -103,5 +100,56 @@ fieldset {
 
 .erreur {
     color: red;
+}
+
+.sidenav {
+    height: 96%;
+    width: 260px;
+    position: absolute;
+    z-index: 1;
+    top: 2%;
+    left: 0;
+    background-color: #969696;
+}
+
+.sidenav input[type="button"] {
+    width: 100%;
+    border: #76C2AF solid 3px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    transition-duration: 0.5s;
+}
+
+.sidenav input[type="button"]:hover {
+    color: #FFF;
+    background-color: #76C2AF;
+}
+
+.scroll{
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    bottom: 0;
+}
+
+.info_corner {
+    background: #2e2e2e;
+    color: #dfdfdf;
+    font-size: 26px;
+    border: 3px solid #76C2AF;
+    position : fixed;
+    top: 10px;
+    height: 7%;
+    width: 254px;
+    text-align: center;
+    border-radius: 15px;
+    padding-top: 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
 }
 
