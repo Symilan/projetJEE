@@ -2,6 +2,8 @@ package objectManager;
 
 import model.Player;
 
+import java.sql.SQLOutput;
+
 public class SessionHandler {
     private SessionHandler() {
     }
@@ -15,9 +17,16 @@ public class SessionHandler {
         return SessionHandlerHolder.MAIN_SESSION_HANDLER_FACADE;
     }
 
-    public Player getSessionFromHash(String id, int hashedPassword)
+    public static Player authFromPseudo(String pseudo, String hashedPassword)
     {
+        System.out.println(pseudo);
+        System.out.println(hashedPassword);
+        System.out.println();
+        System.out.println();
+        return RequestHandler.getRequestHandler().authenticate(pseudo,hashedPassword);
+    }
 
-        return new Player();
+    public static void main(String[] args) {
+        System.out.println(RequestHandler.getRequestHandler().authenticate("noobmaster","AZERTY"));
     }
 }
