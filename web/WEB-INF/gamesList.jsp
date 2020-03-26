@@ -52,6 +52,8 @@
             margin-left: 250px; /* Same as the width of the sidenav */
             font-size: 28px; /* Increased text to enable scrolling */
             padding: 0px 10px;
+            background-color: #147020;
+            position: fixed;
         }
 
         .info_corner {

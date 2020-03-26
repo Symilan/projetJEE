@@ -1,12 +1,13 @@
 body{
-    background: #969696;
-    background-image: url("joystick_background.png");
-    background-repeat: no-repeat;
-    background-position: center;
     font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
     color: #2e2e2e;
     border-collor : #2e2e2e;
     font-size: 18px;
+}
+
+.main{
+    background: #969696 url("joystick_background.png") no-repeat center;
+    position: fixed;
 }
 
 input[type="text"], input[type="password"], textarea {
@@ -31,7 +32,7 @@ input[type="text"], input[type="password"], textarea {
 
 .menu_button{
     color: #4a4a4a;
-    background-color: #FFF;
+    background-color: red;
     transition-duration: 0.5s;
     border: solid 4px #76C2AF;
     padding: 16px 32px;

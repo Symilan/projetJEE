@@ -11,6 +11,7 @@
     <title>Administrateur</title>
 </head>
 <body>
+Test
 Trucs d'admin
 </body>
 </html>
