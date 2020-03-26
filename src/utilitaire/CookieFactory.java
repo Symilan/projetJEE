@@ -1,6 +1,7 @@
 package utilitaire;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public interface CookieFactory {
@@ -12,5 +13,21 @@ public interface CookieFactory {
         Cookie cookie = new Cookie(nom, valeur);
         cookie.setMaxAge(maxAge);
         resp.addCookie(cookie);
+    }
+
+    static String getCookieValue(HttpServletRequest req, String nom)
+    {
+        Cookie[] cookies = req.getCookies();
+        if (cookies != null)
+        {
+            for (Cookie cookie : cookies)
+            {
+                if (cookie != null && nom.equals(cookie.getName()))
+                {
+                    return cookie.getValue();
+                }
+            }
+        }
+        return null;
     }
 }
