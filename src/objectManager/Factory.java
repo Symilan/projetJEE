@@ -37,7 +37,7 @@ public class Factory {
         return player;
     }
 
-    public Player createPlayer(Integer id, String pseudo, String mail, Date birthDate, ArrayList<String> preferedGames, Integer nbPlayedSessions, Date registerDate, Boolean banned) {
+    public Player createPlayer(Integer id, String pseudo, String mail, String birthDate, String preferedGames, Integer nbPlayedSessions, Date registerDate, Boolean banned) {
         Player player = new Player(id, pseudo, mail, birthDate, preferedGames, nbPlayedSessions, registerDate, banned);
         try {
             Register.addPlayer(player);
