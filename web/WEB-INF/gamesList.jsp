@@ -34,7 +34,7 @@
 <div class="main_panel">
     <div class="game_display">
         <p>
-            ${selectedGame.name}
+            ${empty selectedGame ? '' : selectedGame.name }
         </p>
     </div>
 </div>
