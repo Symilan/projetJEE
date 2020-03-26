@@ -6,6 +6,7 @@ import model.Player;
 
 
 import java.sql.*;
+import java.util.Random;
 
 import static objectManager.Factory.getFactory;
 
@@ -63,11 +64,65 @@ public class RequestHandler {
         return player;
     }
 
+    public Boolean register(String pseudo,String mail,String password,String pref_games,String birth){
+        PreparedStatement statement = null;
+        int id ;
+        try {
+            this.connect();
+            id = new RequestHandler().getAvailableId();
+            /* Création de l'objet gérant les requêtes */
+            statement = connexion.prepareStatement("INSERT INTO user(id,pseudo,prefered_games,mail,password,birth_date) " +
+                    "VALUES (?,?,?,?,?,?);");
+            statement.setInt(1, id);
+            statement.setString(2,pseudo);
+            statement.setString(3,pref_games);
+            statement.setString(4,mail);
+            statement.setString(5,password);
+            statement.setString(6,birth);
+            /* Exécution d'une requête de lecture */
+            statement.execute();
+            connexion.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+
+    }
+
+    private Integer getAvailableId() {
+        PreparedStatement statement = null;
+        ResultSet resultat = null;
+        Integer id = 0;
+        Boolean found = false ;
+        Random random = new Random();
+        try{
+            this.connect();
+            do {
+                id = random.nextInt(1000000)+ 1;
+                /* Création de l'objet gérant les requêtes */
+                statement = connexion.prepareStatement("SELECT id FROM user WHERE id=?;");
+                statement.setInt(1,id);
+                /* Exécution d'une requête de lecture */
+                resultat = statement.executeQuery();
+                /* Récupération des données du résultat de la requête de lecture */
+                if(!resultat.next()) {
+                   found = true ;
+                }
+            }while(!found);
+            connexion.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return id ;
+    }
+
     public static void main(String[] args) {
         Player noob ;
         RequestHandler req = new RequestHandler();
         req.connect();
-        noob = req.authenticate("noobmaster","AZERTY");
+        req.register("legend27","memssat@enssat.fr","azerty12345","Minecraft,ECTS Hunter","01/09/1986");
+        noob = req.authenticate("legend27","azerty12345");
         System.out.println(noob);
     }
 }
