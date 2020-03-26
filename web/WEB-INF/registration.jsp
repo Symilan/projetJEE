@@ -12,7 +12,7 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="ressources/style.css" />
 </head>
-<body>
+<body class="main">
 <form method="post" action="enregistrement">
 <fieldset id="tfa_Address" class="left_side">
     <legend id="tfa_Address-L"><b>Information de base </b></legend>
