@@ -34,7 +34,10 @@ public class Registration extends HttpServlet {
         String password = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_MOTDEPASSE);
         String conf_password = RegistrationForm.getValeurChamp(req, CHAMP_CONF_MOTDEPASSE);
         String preferedGames = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_PREFEREDGAMES);
-        String birthDate = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_DATENAISSANCE_JOUR)+"/"+RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_DATENAISSANCE_MOIS)+"/"+RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_DATENAISSANCE_ANNEE);
+        String birthDate_day = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_DATENAISSANCE_JOUR);
+        String birthDate_month = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_DATENAISSANCE_MOIS);
+        String birthDate_year = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_DATENAISSANCE_ANNEE);
+        String birthDate = birthDate_day + "/" + birthDate_month + "/" + birthDate_year;
 
         Player player = null;
 
@@ -63,6 +66,10 @@ public class Registration extends HttpServlet {
             erreurs.put(CHAMP_MOTDEPASSE, e.getMessage());
         }
 
+        valeurs.put(CHAMP_PREFEREDGAMES, preferedGames);
+        valeurs.put(CHAMP_DATENAISSANCE_JOUR, birthDate_day);
+        valeurs.put(CHAMP_DATENAISSANCE_MOIS, birthDate_month);
+        valeurs.put(CHAMP_DATENAISSANCE_ANNEE, birthDate_year);
 
         if (erreurs.isEmpty())
         {
