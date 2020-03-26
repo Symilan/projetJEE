@@ -100,7 +100,7 @@ public class RegistrationForm {
                 int day = Integer.parseInt(dateDay);
                 int month = Integer.parseInt(dateMonth);
                 int year = Integer.parseInt(dateYear);
-                if (day > 31 || day < 1 || month > 12 || month < 1 || year > (new Date().getYear()) || year < 1900)
+                if (day > 31 || day < 1 || month > 12 || month < 1 || year > (new Date().getYear())+1900 || year < 1900)
                 {
                     throw new Exception("Cette date n'est pas valide");
                 }
