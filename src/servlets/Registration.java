@@ -63,6 +63,7 @@ public class Registration extends HttpServlet {
         if (erreurs.isEmpty())
         {
             resultat = "Inscription réussie";
+            //DAO créer le joueur
             player = new Player(pseudo, mail, birthDate, preferedGames);
             req.setAttribute("player", player);
             this.getServletContext().getRequestDispatcher("/WEB-INF/authentification.jsp").forward(req, resp);

@@ -1,9 +1,86 @@
+body{
+    background: #969696;
+    background-image: url("joystick_background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    color: #2e2e2e;
+    border-collor : #2e2e2e;
+    font-size: 18px;
+}
+
+input[type="text"], input[type="password"], textarea {
+    border : solid 2px;
+    border-radius: 3px;
+    padding: 2px;
+    font-size: 16px;
+    border-color: #969696;
+}
+
+.auth_field{
+    margin : 10px 10px 0px 8px;
+}
+
+.hyperlink{
+    font-size: 15px;
+}
+
+.left_side{
+    margin-right: 70%;
+}
+
+.menu_button{
+    color: #4a4a4a;
+    background-color: #FFF;
+    transition-duration: 0.5s;
+    border: solid 4px #76C2AF;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    alignment: center;
+}
+
+.menu_button:hover{
+    background-color: #76C2AF;
+    color : #FFF;
+}
+
+.button {
+    background-color: #FFF;
+    transition-duration: 0.5s;
+    border: solid 2px #969696;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    alignment: center;
+}
+
+.button:hover {
+    background-color: #969696;
+    color: #FFF;
+}
+
+.center_wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+b{
+    font-size:20px;
+}
+
 fieldset {
-    font-family: Trebuchet MS, Helvetica, sans-serif;
-    font-size: 13px;
     line-height: 150%;
     text-align: justify;
-    -webkit-font-smoothing: antialiased;
     margin: 0;
     border: 0;
     min-width: 0;
@@ -11,12 +88,17 @@ fieldset {
     margin-left: 6px;
     margin-right: 6px;
     margin-top: 15px;
-    border-width: 2px;
+    border-width: 3px;
     border-style: solid;
-    color: #000300;
-    border-color: #147020;
     border-radius: 9px;
-    background-repeat: no-repeat;
-    background-color: #e8f7e8;
+    background-color: #76C2AF;
+}
+
+.registration_paragraph {
+    padding-bottom: 15px;
+}
+
+.erreur {
+    color: red;
 }
 

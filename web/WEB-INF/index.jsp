@@ -9,12 +9,12 @@
 <html>
   <head>
     <title>Accueil</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="ressources/style.css" />
   </head>
   <body>
-  <fieldset id="tfa_Address" class="section">
-    <a href="/JEEux_fr/authentification"><input type="button" value="Se connecter"></a>
-    <a href="/JEEux_fr/enregistrement"><input type="button" value="Créer un compte"></a>
-  </fieldset>
+  <div>
+      <a href="/JEEux_fr/authentification"><input class="menu_button" type="button" value="Se connecter"></a>
+      <a href="/JEEux_fr/enregistrement"><input class="menu_button" type="button" value="Créer un compte"></a>
+  </div>
   </body>
 </html>
