@@ -13,7 +13,7 @@ public class Game extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String player = getCookieValue(req, COOKIE_PLAYER);
+        String idplayer = getCookieValue(req, COOKIE_PLAYER);
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/game.jsp").forward(req, resp);
     }

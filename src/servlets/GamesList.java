@@ -19,7 +19,7 @@ public class GamesList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String player = getCookieValue(req, COOKIE_PLAYER);
+        String idplayer = getCookieValue(req, COOKIE_PLAYER);
 
         Factory.getFactory().createGame(0,"BomberMan",0,true);
         Factory.getFactory().createGame(1,"Minecraft",0,true);
