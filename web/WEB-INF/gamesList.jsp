@@ -32,6 +32,11 @@
     </div>
 </div>
 <div class="main_panel">
+    <div class="game_display">
+        <p>
+            ${empty selectedGame ? '' : selectedGame.name }
+        </p>
+    </div>
 </div>
 </body>
 </html>

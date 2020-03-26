@@ -38,6 +38,7 @@
         <div id="birthdate-D" class="registration_paragraph">
             <label id="birthdate-L" for="birthdate">Date de naissance (jj-mm-aaaa) : </label><br>
             <input type="text" id="birthdate" name="birthdate_day" value="${valeurs['birthdate_day']}" autoformat="##" title="Date de naissance (jj)" style="width: 32%" placeholder="ex : 02">/<input type="text" id="tfa_6980290244514" name="birthdate_month" value="${valeurs['birthdate_month']}" autoformat="##" title="Date de naissance (mm) " style="width: 32%" placeholder="ex : 11">/<input type="text" id="tfa_6980290244513" name="birthdate_year" value="${valeurs['birthdate_year']}" autoformat="####" title="Date de naissance (aaaa)" style="width: 32%" placeholder="ex : 2003">
+            <span class="erreur">${erreurs['birthdate_year']}</span>
         </div>
         <input type="submit" value="Confirmer" id="Confirmation" class="button">
         <a href="/JEEux_fr/accueil"><input type="button" value="Annuler" class="button"></a>

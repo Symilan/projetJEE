@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import model.*;
+import objectManager.Factory;
+import objectManager.Register;
 import utilitaire.*;
 
 import static utilitaire.RegistrationForm.*;
@@ -84,7 +86,7 @@ public class Registration extends HttpServlet {
             resultat = "Inscription réussie";
             //DAO créer le joueur
             player = new Player(pseudo, mail, birthDate, preferedGames);
-            req.setAttribute("player", player);
+            req.setAttribute("pseudo", pseudo);
             this.getServletContext().getRequestDispatcher("/WEB-INF/authentification.jsp").forward(req, resp);
 
         } else
