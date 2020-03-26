@@ -11,7 +11,7 @@
     <title>Réglages</title>
     <link rel="stylesheet" href="ressources/style.css" />
 </head>
-<body>
+<body class="main">
 <fieldset id="tfa_Address" class="left_side">
     <legend id="tfa_Address-L"><b>Informations personnelles </b></legend>
     <div id="tfa_6980290244516">

@@ -11,7 +11,7 @@
     <title>Accueil</title>
     <link rel="stylesheet" href="ressources/style.css" />
   </head>
-  <body>
+  <body class="main">
   <div>
       <a href="/JEEux_fr/authentification"><input class="menu_button" type="button" value="Se connecter"></a>
       <a href="/JEEux_fr/enregistrement"><input class="menu_button" type="button" value="Créer un compte"></a>

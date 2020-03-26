@@ -11,7 +11,7 @@
     <title>Authentification</title>
     <link rel="stylesheet" href="ressources/style.css" />
 </head>
-<body>
+<body class="main">
 <fieldset id="tfa_Address">
     <legend><b>Connexion </b></legend>
     <div class="to_the_right">

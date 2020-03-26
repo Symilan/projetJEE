@@ -8,6 +8,8 @@ body{
 .main{
     background: #969696 url("joystick_background.png") no-repeat center;
     position: fixed;
+    height: 100%;
+    width: 100%;
 }
 
 input[type="text"], input[type="password"], textarea {
@@ -32,7 +34,7 @@ input[type="text"], input[type="password"], textarea {
 
 .menu_button{
     color: #4a4a4a;
-    background-color: red;
+    background-color: #FFF;
     transition-duration: 0.5s;
     border: solid 4px #76C2AF;
     padding: 16px 32px;
