@@ -8,9 +8,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import model.*;
-import objectManager.Factory;
-import objectManager.Register;
+import objectManager.RequestHandler;
 import utilitaire.*;
 
 import static utilitaire.RegistrationForm.*;
@@ -25,7 +23,6 @@ public class Registration extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        String resultat;
         Map<String, String> erreurs = new HashMap<String, String>();
         Map<String, String> valeurs = new HashMap<String, String>();
         String pseudo = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_PSEUDO);
@@ -37,8 +34,6 @@ public class Registration extends HttpServlet {
         String birthDate_month = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_DATENAISSANCE_MOIS);
         String birthDate_year = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_DATENAISSANCE_ANNEE);
         String birthDate = birthDate_day + "/" + birthDate_month + "/" + birthDate_year;
-
-        Player player = null;
 
         try
         {
@@ -83,15 +78,12 @@ public class Registration extends HttpServlet {
 
         if (erreurs.isEmpty())
         {
-            resultat = "Inscription réussie";
-            //DAO créer le joueur
-            player = new Player(pseudo, mail, birthDate, preferedGames);
+            RequestHandler.getRequestHandler().register(pseudo, mail, password, preferedGames, birthDate);
             req.setAttribute("pseudo", pseudo);
             this.getServletContext().getRequestDispatcher("/WEB-INF/authentification.jsp").forward(req, resp);
 
         } else
         {
-            resultat = "Inscription échouée";
             req.setAttribute("erreurs", erreurs);
             req.setAttribute("valeurs", valeurs);
             this.getServletContext().getRequestDispatcher("/WEB-INF/registration.jsp").forward(req, resp);

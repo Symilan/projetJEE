@@ -2,8 +2,6 @@ package servlets;
 
 
 import model.Player;
-import objectManager.Factory;
-import objectManager.Register;
 import objectManager.RequestHandler;
 
 import javax.servlet.ServletException;
@@ -46,6 +44,4 @@ public class GamesList extends HttpServlet {
         req.setAttribute("player", new Player(0, "xX_D4rk_S4suk3_Xx", "sasuke@gmail.com", "04/12/1969", "Minecraft", 69, new Date(), true));
         this.getServletContext().getRequestDispatcher("/WEB-INF/gamesList.jsp").forward(req, resp);
     }
-
-
 }

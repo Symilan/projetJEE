@@ -8,7 +8,6 @@ import java.io.IOException;
 
 import model.*;
 import objectManager.Factory;
-import objectManager.Register;
 import objectManager.RequestHandler;
 
 import static utilitaire.CookieFactory.*;
@@ -31,7 +30,7 @@ public class Authentification extends HttpServlet {
             Factory.getFactory().createGame(0,"BomberMan",0,true);
             Factory.getFactory().createGame(1,"Minecraft",0,true);
             Factory.getFactory().createGame(2,"WeebLand",0,true);
-            req.setAttribute("gameList", Register.getActivatedGamesList());
+            req.setAttribute("gameList", RequestHandler.getRequestHandler().getEnabledGames());
             setCookie(resp, COOKIE_PLAYER, player.getId().toString(), COOKIE_MAX_AGE);
             req.setAttribute("player",player);
             this.getServletContext().getRequestDispatcher("/WEB-INF/gamesList.jsp").forward(req, resp);

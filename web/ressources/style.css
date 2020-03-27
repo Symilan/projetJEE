@@ -113,7 +113,7 @@ fieldset {
     background-color: #969696;
 }
 
-.sidenav input[type="button"] {
+.sidenav input[type="submit"] {
     width: 100%;
     border: #76C2AF solid 3px;
     border-radius: 15px;
@@ -121,6 +121,10 @@ fieldset {
     font-size: 25px;
     color: #818181;
     transition-duration: 0.5s;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .sidenav input[type="button"]:hover {
@@ -130,7 +134,7 @@ fieldset {
 
 .scroll{
     width: 100%;
-    height: 95%;
+    height: 92%;
     position: absolute;
     bottom: 0;
 }
@@ -186,7 +190,7 @@ fieldset {
     border-radius: 15px;
     alignment: center;
     font-size: 35px;
-    margin-bottom: 15%;
+    margin-top: 18%;
 }
 
 .game_display .button:hover {
