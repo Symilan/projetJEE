@@ -135,7 +135,6 @@ public class RequestHandler {
             this.connect();
             statement=connexion.prepareStatement("SELECT pseudo,mail,birth_date,prefered_games,nb_game_sessions,register_date,banned FROM user WHERE id=?;");
             statement.setInt(1,id);
-            System.out.println(statement);
             result=statement.executeQuery();
             while (result.next()){
                 String pseudo = result.getString("pseudo");
@@ -144,7 +143,8 @@ public class RequestHandler {
                 String preferedGames = result.getString("prefered_games");
                 Integer nbPlayedSessions = result.getInt("nb_game_sessions");
                 Date registerDate = result.getDate("register_date");
-                Boolean banned = result.getBoolean("banned");
+                Boolean banned = (result.getString("banned")=="inactive");
+                player = Factory.getFactory().createPlayer(id,pseudo,mail,birthDate,preferedGames,nbPlayedSessions,registerDate,banned);
             }
             connexion.close();
         } catch (SQLException e) {
