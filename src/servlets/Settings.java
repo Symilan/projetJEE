@@ -32,6 +32,7 @@ public class Settings extends HttpServlet {
             valeurs.put(CHAMP_DATENAISSANCE_MOIS, player.getBirthDate().substring(3,5));
             valeurs.put(CHAMP_DATENAISSANCE_ANNEE, player.getBirthDate().substring(6,10));
             valeurs.put(CHAMP_PREFEREDGAMES, player.getPreferedGames());
+            System.out.println(valeurs.toString());
             req.setAttribute("valeurs", valeurs);
             setCookie(resp, COOKIE_PLAYER, player.getId().toString(), COOKIE_MAX_AGE);
 

@@ -35,7 +35,7 @@
             <label id="tfa_6980290243484-L" for="tfa_6980290243481">Confirmer nouveau mot de passe :</label><br><input type="text" id="tfa_6980290243484" name="passwordConfirmed" value="" title="Confirmer nouveau mot de passe" style="width: 100%">
         </div>
         <div id="tfa_6980290244525-D" class="registration_paragraph">
-            <label id="tfa_6980290244525-L" for="tfa_6980290244525">Jeux préférés :</label><br><textarea id="tfa_6980290244525" name="preferedGames" title="Jeux préférés" style="width: 100%" value="${valeurs['preferedGames']}"></textarea>
+            <label id="tfa_6980290244525-L" for="tfa_6980290244525">Jeux préférés :</label><br><textarea id="tfa_6980290244525" name="preferedGames" title="Jeux préférés" style="width: 100%">${valeurs['preferedGames']}</textarea>
         </div>
         <div id="tfa_6980290244512-D" class="registration_paragraph">
             <label id="tfa_6980290244512-L" for="tfa_6980290244512">Date de naissance (jj-mm-aaaa) :</label><br>
