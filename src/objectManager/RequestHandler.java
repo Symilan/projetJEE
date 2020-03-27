@@ -1,17 +1,15 @@
 package objectManager;
 
-
-import com.mysql.cj.xdevapi.Statement;
 import model.Game;
 import model.Player;
-
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static objectManager.Factory.getFactory;
-
+/**
+ * Manage the DataBase connexion and requests
+ */
 public class RequestHandler {
     /* Connexion à la base de données */
     private String url = "jdbc:mysql://vps.tonychouteau.fr:3306/JEEux_fr";
@@ -37,6 +35,9 @@ public class RequestHandler {
         return RequestHandlerHolder.MAIN_REQUEST_HANDLER_FACADE;
     }
 
+    /**
+     * initialize connexion to grant access to the online DataBase
+     */
     protected void connect(){
         try {
             connexion = DriverManager.getConnection( url, utilisateur, motDePasse );
@@ -46,6 +47,12 @@ public class RequestHandler {
 
     }
 
+    /**
+     * Try to authentificate a player from a pseudo and a password
+     * @param username the pseudo entered in the TextField
+     * @param password the password entered in the TextField
+     * @return the player matching, or null if no player was found
+     */
     public Player authenticate(String username,String password){
         PreparedStatement statement = null;
         ResultSet resultat = null;
@@ -75,6 +82,15 @@ public class RequestHandler {
         return player;
     }
 
+    /**
+     * Register a new player in the DataBase
+     * @param pseudo pseudo entered in the TextField
+     * @param mail mail entered in the TextField
+     * @param password password entered in the TextField
+     * @param pref_games prefered games entered in the TextField
+     * @param birth birthdate recomposed from the TextFields
+     * @return a Boolean indicating if the operation was successfull
+     */
     public Boolean register(String pseudo,String mail,String password,String pref_games,String birth){
         PreparedStatement statement = null;
         int id ;
@@ -101,6 +117,10 @@ public class RequestHandler {
 
     }
 
+    /**
+     * Create a non existing new id randomly
+     * @return the new id
+     */
     private Integer getAvailableId() {
         PreparedStatement statement = null;
         ResultSet resultat = null;
