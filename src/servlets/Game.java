@@ -20,14 +20,16 @@ public class Game extends HttpServlet {
 
         String idplayer = getCookieValue(req, COOKIE_PLAYER);
         String gameName = getCookieValue(req, COOKIE_GAME);
-        Factory.getFactory().createGameSession(
+        RequestHandler.getRequestHandler().saveGameSession(Factory.getFactory().createGameSession(
                 0,
                 0,
                 RequestHandler.getRequestHandler().getGameFromName(gameName),
                 1000,
                 RequestHandler.getRequestHandler().getPlayerFromId(Integer.parseInt(idplayer)),
                 new Date(),
-                new Date());
+                new Date()));
+
+        System.out.println("nbplayed session: "+RequestHandler.getRequestHandler().getPlayerFromId(Integer.parseInt(idplayer)).getNbPlayedSessions());
 
         req.setAttribute("player", RequestHandler.getRequestHandler().getPlayerFromId(Integer.parseInt(idplayer)).getPseudo());
         req.setAttribute("gameName", gameName);

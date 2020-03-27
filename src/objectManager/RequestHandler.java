@@ -218,8 +218,8 @@ public class RequestHandler {
             statement.setInt(2,gameSession.getGame().getId());
             statement.setInt(3,gameSession.getPlayer().getId());
             statement.setTime(4,new Time(gameSession.getDuration()));
-            statement.setDate(5, (Date) gameSession.getBeginningDate());
-            statement.setDate(6, (Date) gameSession.getEndingDate());
+            statement.setDate(5, new java.sql.Date(gameSession.getBeginningDate().getTime()));
+            statement.setDate(6, new java.sql.Date(gameSession.getEndingDate().getTime()));
             statement.setInt(7,gameSession.getScore());
             gameSession.getPlayer().setNbPlayedSessions(gameSession.getPlayer().getNbPlayedSessions()+1);
             playerStatement.setInt(1,gameSession.getPlayer().getNbPlayedSessions());
