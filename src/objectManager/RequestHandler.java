@@ -287,7 +287,7 @@ public class RequestHandler {
                 String preferedGames = result.getString("prefered_games");
                 Integer nbPlayedSessions = result.getInt("nb_game_sessions");
                 Date registerDate = result.getDate("register_date");
-                Boolean banned = (result.getString("banned")=="inactive");
+                Boolean banned = (result.getString("banned")=="false");
                 player = Factory.getFactory().createPlayer(id,pseudo,mail,birthDate,preferedGames,nbPlayedSessions,registerDate,banned);
             }
             connexion.close();
@@ -297,11 +297,30 @@ public class RequestHandler {
         return player;
     }
 
+    public Game getGameFromName(String name)
+    {
+        PreparedStatement statement = null;
+        ResultSet result=null;
+        Game game=null;
+        try{
+            this.connect();
+            statement=connexion.prepareStatement("SELECT * FROM game WHERE name=?;");
+            statement.setString(1,name);
+            result=statement.executeQuery();
+            while (result.next()){
+                Integer id = result.getInt("id");
+                Integer nbPlayedSessions = result.getInt("nb_played_sessions");
+                Boolean activated = (result.getInt("activated")==1);
+                game = Factory.getFactory().createGame(id,name,nbPlayedSessions,activated);
+            }
+            connexion.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return game;
+    }
+
     public static void main(String[] args) {
-        Player noob ;
-        RequestHandler req = new RequestHandler();
-        req.register("Thelegend27","dankmemssat@enssat.fr","azerty","Minecraft, ECTS HUnter","04/12/2012");
-        noob = req.authenticate("Thelegend27","azerty");
-        System.out.println(noob);
+        System.out.println(RequestHandler.getRequestHandler().getGameFromName("Bomberman"));
     }
 }

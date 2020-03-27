@@ -44,7 +44,7 @@ public class Registration extends HttpServlet {
 
         try
         {
-            validationPseudo(pseudo);
+            validationPseudo(pseudo, 0, true);
         } catch (Exception e)
         {
             erreurs.put(CHAMP_PSEUDO, e.getMessage());

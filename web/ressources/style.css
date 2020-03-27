@@ -113,7 +113,7 @@ fieldset {
     background-color: #969696;
 }
 
-.sidenav input[type="submit"] {
+.sidenav_button {
     width: 100%;
     border: #76C2AF solid 3px;
     border-radius: 15px;
@@ -127,7 +127,7 @@ fieldset {
     padding-bottom: 5px;
 }
 
-.sidenav input[type="button"]:hover {
+.sidenav_button:hover {
     color: #FFF;
     background-color: #76C2AF;
 }

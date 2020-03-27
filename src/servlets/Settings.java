@@ -57,6 +57,8 @@ public class Settings extends HttpServlet {
                 String conf_password = RegistrationForm.getValeurChamp(req, CHAMP_CONF_MOTDEPASSE);
                 String preferedGames = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_PREFEREDGAMES);
 
+
+
                 try {
                     validationMail(mail);
                 } catch (Exception e) {
@@ -65,23 +67,53 @@ public class Settings extends HttpServlet {
                 valeurs.put(CHAMP_MAIL, mail);
 
                 try {
-                    validationPseudo(pseudo);
+                    validationPseudo(pseudo, Integer.parseInt(idplayer), false);
                 } catch (Exception e) {
                     erreurs.put(CHAMP_PSEUDO, e.getMessage());
                 }
                 valeurs.put(CHAMP_PSEUDO, pseudo);
 
-                try {
-                    validationPassword_opt(password, conf_password);
-                } catch (Exception e) {
-                    erreurs.put(CHAMP_MOTDEPASSE, e.getMessage());
+
+                if (oldPassword != null)
+                {
+                    try
+                    {
+                        RequestHandler.getRequestHandler().authenticate(RequestHandler.getRequestHandler().getPlayerFromId(Integer.parseInt(idplayer)).getPseudo(), oldPassword);
+                    }
+                    catch (Exception e)
+                    {
+                        e.printStackTrace();
+                    }
+                    try {
+                        validationPassword_opt(password, conf_password);
+                    } catch (Exception e) {
+                        erreurs.put(CHAMP_MOTDEPASSE, e.getMessage());
+                    }
+                }
+                else if (password != null)
+                {
+                    erreurs.put(CHAMP_MOTDEPASSE, "Vous ne pouvez pas changer de mot de passe sans rentrer l'ancien.");
                 }
 
 
+                valeurs.put(CHAMP_DATENAISSANCE_JOUR, player.getBirthDate().substring(0,2));
+                valeurs.put(CHAMP_DATENAISSANCE_MOIS, player.getBirthDate().substring(3,5));
+                valeurs.put(CHAMP_DATENAISSANCE_ANNEE, player.getBirthDate().substring(6,10));
                 valeurs.put(CHAMP_PREFEREDGAMES, preferedGames);
 
                 if (erreurs.isEmpty()) {
-                    //Modification enregistrées
+                    //Modification information joueur
+                    try {
+                        RequestHandler.getRequestHandler().updatePlayer(Integer.parseInt(idplayer), pseudo, preferedGames, mail);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if (password != null && oldPassword != null)
+                    {
+                        RequestHandler.getRequestHandler().updatePassword(Integer.parseInt(idplayer), password);
+                    }
+                    req.setAttribute("valeurs", valeurs);
+                    this.getServletContext().getRequestDispatcher("/WEB-INF/settings.jsp").forward(req, resp);
                 } else {
                     req.setAttribute("erreurs", erreurs);
                     req.setAttribute("valeurs", valeurs);

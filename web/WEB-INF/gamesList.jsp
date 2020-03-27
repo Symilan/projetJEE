@@ -27,7 +27,7 @@
             for (Game game : gameList)
             {
                 out.println("<form type=\"hidden\" method=\"post\" action=\"listeDesJeux\">");
-                out.println("<a href=\"\"><input type=\"submit\" name=\""+game.getName()+"\" value=\""+game.getName()+"\"></a>");
+                out.println("<a href=\"\"><input type=\"submit\" class=\"sidenav_button\" name=\""+game.getName()+"\" value=\""+game.getName()+"\"></a>");
                 out.println("</form>");
             }
         %>
