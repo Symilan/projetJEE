@@ -151,6 +151,11 @@ public class RequestHandler {
         return id ;
     }
 
+    /**
+     * create Player Object from database information
+     * @param id id of the player
+     * @return Player Object
+     */
     public Player getPlayerFromId(Integer id)
     {
         PreparedStatement statement = null;
@@ -178,6 +183,10 @@ public class RequestHandler {
         return player;
     }
 
+    /**
+     * return ArrayList of Game
+     * @return Game Object
+     */
     public ArrayList<Game> getEnabledGames()
     {
         PreparedStatement statement = null;
@@ -202,6 +211,11 @@ public class RequestHandler {
         return gameList;
     }
 
+    /**
+     * insert game session in database and update information
+     * @param gameSession GameSession Object
+     * @return Boolean
+     */
     public Boolean saveGameSession(GameSession gameSession){
         PreparedStatement statement = null;
         PreparedStatement playerStatement ;
@@ -239,6 +253,13 @@ public class RequestHandler {
         return true ;
     }
 
+    /**
+     * Update the player information
+     * @param id id of the player
+     * @param pseudo pseudo of the player
+     * @param preferedGames prefered games
+     * @param mail mail of the player
+     */
     public void updatePlayer(Integer id, String pseudo, String preferedGames, String mail){
         PreparedStatement statement = null;
         this.connect();
@@ -254,7 +275,11 @@ public class RequestHandler {
         }
     }
 
-
+    /**
+     * Update the password
+     * @param id id of the player
+     * @param password new password
+     */
     public void updatePassword(Integer id, String password) {
         PreparedStatement statement = null;
         try {
@@ -269,6 +294,11 @@ public class RequestHandler {
 
     }
 
+    /**
+     * create a Player Object from database information
+     * @param pseudo pseudo of the player
+     * @return Player Object
+     */
     public Player getPlayerFromPseudo(String pseudo)
     {
         PreparedStatement statement = null;
@@ -296,6 +326,11 @@ public class RequestHandler {
         return player;
     }
 
+    /**
+     * create Game Object from database
+     * @param name name of the game
+     * @return Game Object
+     */
     public Game getGameFromName(String name)
     {
         PreparedStatement statement = null;
@@ -317,9 +352,5 @@ public class RequestHandler {
             e.printStackTrace();
         }
         return game;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(RequestHandler.getRequestHandler().getGameFromName("Bomberman"));
     }
 }
