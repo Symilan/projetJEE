@@ -1,8 +1,9 @@
 package objectManager;
 
 
-import com.mysql.cj.xdevapi.Statement;
+
 import model.Game;
+import model.GameSession;
 import model.Player;
 
 
@@ -10,7 +11,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static objectManager.Factory.getFactory;
 
 public class RequestHandler {
     /* Connexion à la base de données */
@@ -53,7 +53,7 @@ public class RequestHandler {
         try{
             this.connect();
             /* Création de l'objet gérant les requêtes */
-            statement = connexion.prepareStatement("SELECT id,pseudo,mail FROM user WHERE pseudo=? AND password=?;");
+            statement = connexion.prepareStatement("SELECT id FROM user WHERE pseudo=? AND password=MD5(?);");
             statement.setString(1,username);
             statement.setString(2,password);
             /* Exécution d'une requête de lecture */
@@ -63,10 +63,7 @@ public class RequestHandler {
             /* Récupération des données du résultat de la requête de lecture */
             while ( resultat.next() ) {
                 int id = resultat.getInt( "id" );
-                String mail = resultat.getString("mail");
-                String pseudo = resultat.getString("pseudo");
-                System.out.println(resultat.getInt( "id" ));
-                player = Factory.getFactory().createPlayer(id,pseudo,mail);
+                player = getPlayerFromId(id);
             }
             connexion.close();
         }catch (Exception e){
@@ -82,14 +79,15 @@ public class RequestHandler {
             this.connect();
             id = new RequestHandler().getAvailableId();
             /* Création de l'objet gérant les requêtes */
-            statement = connexion.prepareStatement("INSERT INTO user(id,pseudo,prefered_games,mail,password,birth_date) " +
-                    "VALUES (?,?,?,?,?,?);");
+            statement = connexion.prepareStatement("INSERT INTO user(id,pseudo,prefered_games,mail,password,birth_date,register_date) " +
+                    "VALUES (?,?,?,?,MD5(?),?,?);");
             statement.setInt(1, id);
             statement.setString(2,pseudo);
             statement.setString(3,pref_games);
             statement.setString(4,mail);
             statement.setString(5,password);
             statement.setString(6,birth);
+            statement.setDate(7,new Date(System.currentTimeMillis()));
             /* Exécution d'une requête de lecture */
             statement.execute();
             connexion.close();
@@ -98,7 +96,6 @@ public class RequestHandler {
             return false;
         }
         return true;
-
     }
 
     private Integer getAvailableId() {
@@ -112,8 +109,10 @@ public class RequestHandler {
             do {
                 id = random.nextInt(1000000)+ 1;
                 /* Création de l'objet gérant les requêtes */
-                statement = connexion.prepareStatement("SELECT id FROM user WHERE id=?;");
+                statement = connexion.prepareStatement("SELECT id FROM user,game_session,game WHERE user.id=? OR game_session.id=? OR game.id=?;");
                 statement.setInt(1,id);
+                statement.setInt(2,id);
+                statement.setInt(3,id);
                 /* Exécution d'une requête de lecture */
                 resultat = statement.executeQuery();
                 /* Récupération des données du résultat de la requête de lecture */
@@ -128,7 +127,7 @@ public class RequestHandler {
         return id ;
     }
 
-    public Player getPlayerFromId(Integer id)
+    private Player getPlayerFromId(Integer id)
     {
         PreparedStatement statement = null;
         ResultSet result=null;
@@ -145,8 +144,8 @@ public class RequestHandler {
                 String preferedGames = result.getString("prefered_games");
                 Integer nbPlayedSessions = result.getInt("nb_game_sessions");
                 Date registerDate = result.getDate("register_date");
-                Boolean banned = (result.getString("banned")=="inactive");
-                player = Factory.getFactory().createPlayer(id,pseudo,mail,birthDate,preferedGames,nbPlayedSessions,registerDate,banned);
+                Boolean banned = result.getString("banned")=="false" ;
+                player = Factory.getFactory().createPlayer(id,pseudo,mail,birthDate,preferedGames,nbPlayedSessions,registerDate,banned) ;
             }
             connexion.close();
         } catch (SQLException e) {
@@ -179,7 +178,45 @@ public class RequestHandler {
         return gameList;
     }
 
+    public Boolean saveGameSession(GameSession gameSession){
+        PreparedStatement statement = null;
+        PreparedStatement playerStatement ;
+        PreparedStatement gameStatement = null;
+        int id ;
+        try {
+            this.connect();
+            id = new RequestHandler().getAvailableId();
+            /* Création de l'objet gérant les requêtes */
+            statement = connexion.prepareStatement("INSERT INTO game_session(id,id_game,id_player,duration,beginning_date,ending_date,score) " +
+                    "VALUES (?,?,?,?,?,?,?);");
+            playerStatement = connexion.prepareStatement("UPDATE user SET nb_game_sessions = nb_game_sessions+1 WHERE id=?");
+            gameStatement =  connexion.prepareStatement("UPDATE game SET nb_played_sessions = nb_game_sessions+1 WHERE id=?");
+            statement.setInt(1, id);
+            statement.setInt(2,gameSession.getGame().getId());
+            statement.setInt(3,gameSession.getPlayer().getId());
+            statement.setTime(4,new Time(gameSession.getDuration()));
+            statement.setDate(5, (Date) gameSession.getBeginningDate());
+            statement.setDate(6, (Date) gameSession.getEndingDate());
+            statement.setInt(7,gameSession.getScore());
+            playerStatement.setInt(1,gameSession.getPlayer().getId());
+            gameStatement.setInt(1,gameSession.getGame().getId());
+            /* Exécution d'une requête de lecture */
+            statement.execute();
+            playerStatement.executeUpdate();
+            gameStatement.executeUpdate();
+            connexion.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true ;
+    }
+
     public static void main(String[] args) {
-        System.out.println(RequestHandler.getRequestHandler().getEnabledGames());
+        Player noob ;
+        RequestHandler req = new RequestHandler();
+        req.register("Thelegend27","dankmemssat@enssat.fr","azerty","Minecraft, ECTS HUnter","04/12/2012");
+        noob = req.authenticate("Thelegend27","azerty");
+        System.out.println(noob);
     }
 }
