@@ -26,7 +26,9 @@
             ArrayList<model.Game> gameList = (ArrayList<model.Game>) request.getAttribute("gameList");
             for (Game game : gameList)
             {
-                out.println("<a href=\"\"><input type=\"button\" value=\""+game.getName()+"\"></a>");
+                out.println("<form type=\"hidden\" method=\"post\" action=\"listeDesJeux\">");
+                out.println("<a href=\"\"><input type=\"submit\" name=\""+game.getName()+"\" value=\""+game.getName()+"\"></a>");
+                out.println("</form>");
             }
         %>
     </div>
