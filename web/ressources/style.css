@@ -164,6 +164,7 @@ fieldset {
     background-repeat: no-repeat;
     background-position: center;
     background-image: url('joystick_background.png');
+    text-align: center;
 }
 
 .game_display p {
@@ -171,4 +172,24 @@ fieldset {
     text-align: center;
     font-size: 50px;
     font-weight: bold;
+}
+
+.game_display .button {
+    background-color: #FFF;
+    transition-duration: 0.5s;
+    border: solid 3px #76C2AF;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 15px;
+    alignment: center;
+    font-size: 35px;
+    margin-bottom: 15%;
+}
+
+.game_display .button:hover {
+    font-color: #FFF;
+    background-color: #76C2AF;
 }

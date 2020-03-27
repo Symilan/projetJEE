@@ -38,6 +38,7 @@
         <p>
             ${empty selectedGame ? '' : selectedGame.name }
         </p>
+        ${empty selectedGame ? '' : '<input type="submit" value="Jouer !" class="button">' }
     </div>
 </div>
 </body>
