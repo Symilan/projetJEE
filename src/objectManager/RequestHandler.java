@@ -206,16 +206,15 @@ public class RequestHandler {
         PreparedStatement statement = null;
         PreparedStatement playerStatement ;
         PreparedStatement gameStatement = null;
-        int id ;
         try {
             this.connect();
-            id = new RequestHandler().getAvailableId();
+            gameSession.setId(new RequestHandler().getAvailableId());
             /* Création de l'objet gérant les requêtes */
             statement = connexion.prepareStatement("INSERT INTO game_session(id,id_game,id_player,duration,beginning_date,ending_date,score) " +
                     "VALUES (?,?,?,?,?,?,?);");
             playerStatement = connexion.prepareStatement("UPDATE user SET nb_game_sessions = ? WHERE id=?");
             gameStatement =  connexion.prepareStatement("UPDATE game SET nb_played_sessions = ? WHERE id=?");
-            statement.setInt(1, id);
+            statement.setInt(1, gameSession.getId());
             statement.setInt(2,gameSession.getGame().getId());
             statement.setInt(3,gameSession.getPlayer().getId());
             statement.setTime(4,new Time(gameSession.getDuration()));
