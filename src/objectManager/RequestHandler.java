@@ -2,10 +2,12 @@ package objectManager;
 
 
 import com.mysql.cj.xdevapi.Statement;
+import model.Game;
 import model.Player;
 
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Random;
 
 import static objectManager.Factory.getFactory;
@@ -153,7 +155,31 @@ public class RequestHandler {
         return player;
     }
 
+    public ArrayList<Game> getEnabledGames()
+    {
+        PreparedStatement statement = null;
+        ResultSet result=null;
+        ArrayList<Game> gameList = new ArrayList<>();
+        try {
+            this.connect();
+            statement=connexion.prepareStatement("SELECT * FROM game WHERE activated=1;");
+            result=statement.executeQuery();
+            while (result.next())
+            {
+                Integer id= result.getInt("id");
+                String name= result.getString("name");
+                Integer nbPlayedSessions=result.getInt("nb_played_sessions");
+                Boolean activated=(result.getInt("activated")==1);
+                gameList.add(Factory.getFactory().createGame(id,name,nbPlayedSessions,activated));
+            }
+            connexion.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return gameList;
+    }
+
     public static void main(String[] args) {
-        System.out.println(RequestHandler.getRequestHandler().getPlayerFromId(8161));
+        System.out.println(RequestHandler.getRequestHandler().getEnabledGames());
     }
 }
