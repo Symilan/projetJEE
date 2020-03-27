@@ -2,6 +2,10 @@ package model;
 
 import java.util.Objects;
 
+
+/**
+ * This class represent a game (for exemple Bomberman or Pacman)
+ */
 public class Game {
     private Integer id;
     private String name;

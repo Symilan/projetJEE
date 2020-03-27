@@ -3,6 +3,10 @@ package model;
 import java.util.Date;
 import java.util.Objects;
 
+
+/**
+ * This class represent the instance of a player playing one game
+ */
 public class GameSession {
     private Integer id;
     private Integer duration;

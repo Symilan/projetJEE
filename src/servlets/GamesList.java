@@ -2,8 +2,6 @@ package servlets;
 
 
 import model.Player;
-import objectManager.Factory;
-import objectManager.Register;
 import objectManager.RequestHandler;
 
 import javax.servlet.ServletException;
@@ -33,6 +31,4 @@ public class GamesList extends HttpServlet {
         this.getServletContext().getRequestDispatcher("/WEB-INF/gamesList.jsp").forward(req, resp);
 
     }
-
-
 }

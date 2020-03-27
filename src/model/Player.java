@@ -1,9 +1,12 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 
+
+/**
+ * This class represent the player, as a player and as a user
+ */
 public class Player {
     private Integer id;
     private String pseudo;
