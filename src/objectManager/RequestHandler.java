@@ -133,7 +133,7 @@ public class RequestHandler {
             do {
                 id = random.nextInt(1000000)+ 1;
                 /* Création de l'objet gérant les requêtes */
-                statement = connexion.prepareStatement("SELECT id FROM user,game_session,game WHERE user.id=? OR game_session.id=? OR game.id=?;");
+                statement = connexion.prepareStatement("SELECT * FROM user,game_session,game WHERE user.id=? OR game_session.id=? OR game.id=?;");
                 statement.setInt(1,id);
                 statement.setInt(2,id);
                 statement.setInt(3,id);

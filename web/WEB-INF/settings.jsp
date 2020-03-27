@@ -47,7 +47,7 @@
             <input type="text" id="tfa_6980290244520" name="nbPlayedSessions" value="${valeurs['nbPlayedSessions']}" autoformat="##" title="nbPlayedSessions " disabled style="width: 100%"></div>
         </div><br>
         <input type="submit" value="Modifier" class="button">
-        <a href="/JEEux_fr/listeDesJeux"><input type="button" value="Annuler" class="button"></a>
+        <a href="/JEEux_fr/listeDesJeux"><input type="button" value="Retour" class="button"></a>
         <form type="hidden" method="post" action="reglages">
         <input type="submit" name="Deconnexion" value="Deconnexion" class="button">
         </form>
