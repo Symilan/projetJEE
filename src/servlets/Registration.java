@@ -89,10 +89,4 @@ public class Registration extends HttpServlet {
             this.getServletContext().getRequestDispatcher("/WEB-INF/registration.jsp").forward(req, resp);
         }
     }
-
-
-
-
-
-
 }
