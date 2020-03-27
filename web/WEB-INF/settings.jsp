@@ -41,6 +41,10 @@
             <label id="tfa_6980290244512-L" for="tfa_6980290244512">Date de naissance (jj-mm-aaaa) :</label><br>
             <input type="text" id="tfa_6980290244512" name="birthDate_day" value="${valeurs['birthdate_day']}" autoformat="##" title="Date de naissance (jj) " disabled style="width: 32%">/<input type="text" id="tfa_6980290244514" name="birthDate_month" value="${valeurs['birthdate_month']}" autoformat="##" title="Date de naissance (mm) " disabled style="width: 32%">/<input type="text" id="tfa_6980290244513" name="birthDate_year" value="${valeurs['birthdate_year']}" autoformat="####" title="Date de naissance (aaaa)" disabled style="width: 32%"></div>
             <span class="erreur">${erreurs['birthdate_year']}</span>
+        </div>
+        <div id="tfa_6980290244520-D" class="registration_paragraph">
+            <label id="tfa_6980290244520-L" for="tfa_6980290244520">Nombre de parties jouées :</label><br>
+            <input type="text" id="tfa_6980290244520" name="nbPlayedSessions" value="${player['nbPlayedSessions']}" autoformat="##" title="nbPlayedSessions " disabled style="width: 100%"></div>
         </div><br>
         <input type="submit" value="Modifier" class="button">
         <a href="/JEEux_fr/listeDesJeux"><input type="button" value="Annuler" class="button"></a>
