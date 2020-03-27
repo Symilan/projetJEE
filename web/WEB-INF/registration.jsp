@@ -33,7 +33,7 @@
             <label id="passwordConfirmed-L" for="passwordConfirmed-L">Confirmer le mot de passe :</label><br><input type="password" id="passwordConfirmed" name="passwordConfirmed" value="" title="Confirmer mot de passe" style="width: 100%">
         </div>
         <div id="preferredGames-D" class="registration_paragraph">
-            <label id="preferredGames-L" for="preferredGames">Jeux préférés :</label><br><textarea id="preferredGames" name="preferredGames" title="Jeux préférés" style="width: 100%" placeholder="ex : Minecraft, Legends of Runeterra, Darkest Dungeons">${valeurs['preferredGames']}</textarea>
+            <label id="preferredGames-L" for="preferredGames">Jeux préférés :</label><br><textarea id="preferredGames" name="preferedGames" title="Jeux préférés" style="width: 100%" placeholder="ex : Minecraft, Legends of Runeterra, Darkest Dungeons">${valeurs['preferedGames']}</textarea>
         </div>
         <div id="birthdate-D" class="registration_paragraph">
             <label id="birthdate-L" for="birthdate">Date de naissance (jj-mm-aaaa) : </label><br>
