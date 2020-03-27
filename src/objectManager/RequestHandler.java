@@ -236,19 +236,19 @@ public class RequestHandler {
         return true ;
     }
 
-    public void updatePlayer(Integer id, String pseudo, String preferedGames, String mail) throws Exception {
+    public void updatePlayer(Integer id, String pseudo, String preferedGames, String mail){
         PreparedStatement statement = null;
         this.connect();
-        Player otherPlayer = new RequestHandler().getPlayerFromPseudo(pseudo);
-        if (otherPlayer != null && otherPlayer.getId() != id) {
-            throw new Exception("Ce joueur existe déjà");
-        }
+        try {
         statement = connexion.prepareStatement("UPDATE user SET pseudo=?, prefered_games=?, mail=? WHERE id=?;");
         statement.setString(1, pseudo);
         statement.setString(2, preferedGames);
         statement.setString(3, mail);
         statement.setInt(4, id);
         statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 
