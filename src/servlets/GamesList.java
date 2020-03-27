@@ -22,34 +22,42 @@ public class GamesList extends HttpServlet {
         req.setAttribute("selectedGame", RequestHandler.getRequestHandler().getEnabledGames().get(0));
         req.setAttribute("gameList", RequestHandler.getRequestHandler().getEnabledGames());
         req.setAttribute("player", RequestHandler.getRequestHandler().getPlayerFromId(Integer.parseInt(player)));
+        setCookie(resp, COOKIE_GAME, RequestHandler.getRequestHandler().getEnabledGames().get(0).getName(), COOKIE_MAX_AGE);
+
         this.getServletContext().getRequestDispatcher("/WEB-INF/gamesList.jsp").forward(req, resp);
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 
         String idplayer = getCookieValue(req, COOKIE_PLAYER);
-
-        ArrayList<model.Game> gameList = RequestHandler.getRequestHandler().getEnabledGames();
-        int i = 0;
-        for (model.Game game : gameList)
-        {
-            if (req.getParameter(game.getName()) != null)
-            {
-                req.setAttribute("selectedGame", RequestHandler.getRequestHandler().getEnabledGames().get(i));
-                setCookie(resp, COOKIE_GAME, game.getName(), COOKIE_MAX_AGE);
-            }
-            i++;
-        }
-
         if (req.getParameter("Jouer") != null)
         {
             req.setAttribute("player", RequestHandler.getRequestHandler().getPlayerFromId(Integer.parseInt(idplayer)).getPseudo());
             req.setAttribute("gameName", getCookieValue(req, COOKIE_GAME));
             this.getServletContext().getRequestDispatcher("/WEB-INF/game.jsp").forward(req, resp);
         }
+        else{
+            ArrayList<model.Game> gameList = RequestHandler.getRequestHandler().getEnabledGames();
+            int i = 0;
+            for (model.Game game : gameList)
+            {
+                if (req.getParameter(game.getName()) != null)
+                {
+                    System.out.println(RequestHandler.getRequestHandler().getEnabledGames().get(i).toString());
+                    req.setAttribute("selectedGame", RequestHandler.getRequestHandler().getEnabledGames().get(i));
+                    setCookie(resp, COOKIE_GAME, game.getName(), COOKIE_MAX_AGE);
+                }
+                i++;
+            }
 
-        req.setAttribute("gameList", RequestHandler.getRequestHandler().getEnabledGames());
-        req.setAttribute("player", RequestHandler.getRequestHandler().getPlayerFromId(Integer.parseInt(idplayer)));
-        this.getServletContext().getRequestDispatcher("/WEB-INF/gamesList.jsp").forward(req, resp);
+
+
+            req.setAttribute("gameList", RequestHandler.getRequestHandler().getEnabledGames());
+            req.setAttribute("player", RequestHandler.getRequestHandler().getPlayerFromId(Integer.parseInt(idplayer)));
+            this.getServletContext().getRequestDispatcher("/WEB-INF/gamesList.jsp").forward(req, resp);
+
+        }
+
+
     }
 }
