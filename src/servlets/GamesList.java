@@ -29,7 +29,6 @@ public class GamesList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String player = getCookieValue(req, COOKIE_PLAYER);
-        req.setAttribute("selectedGame", RequestHandler.getRequestHandler().getEnabledGames().get(0));
         req.setAttribute("gameList", RequestHandler.getRequestHandler().getEnabledGames());
         req.setAttribute("player", RequestHandler.getRequestHandler().getPlayerFromId(Integer.parseInt(player)));
         setCookie(resp, COOKIE_GAME, RequestHandler.getRequestHandler().getEnabledGames().get(0).getName(), COOKIE_MAX_AGE);
