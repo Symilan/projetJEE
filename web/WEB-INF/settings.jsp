@@ -44,7 +44,9 @@
         </div><br>
         <input type="submit" value="Modifier" class="button">
         <a href="/JEEux_fr/listeDesJeux"><input type="button" value="Annuler" class="button"></a>
-        <a href="/JEEux_fr/accueil"><input type="button" value="Déconnexion" class="button"></a>
+        <form type="hidden" method="post" action="reglages">
+        <input type="submit" name="Deconnexion" value="Deconnexion" class="button">
+        </form>
     </div>
 </fieldset>
 </form>

@@ -39,7 +39,7 @@
             ${empty selectedGame ? '' : selectedGame.name }
         </p>
 
-        ${empty selectedGame ? '' : '<form method="get" type="hidden" action="jeu"><input type="submit" name="Jouer" value="Jouer !" class="button"></form>' }
+        ${empty selectedGame ? '' : '<form method="post" type="hidden" action="listeDesJeux"><input type="submit" name="Jouer" value="Jouer !" class="button"></form>' }
     </div>
 </div>
 </body>
