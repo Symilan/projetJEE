@@ -252,8 +252,17 @@ public class RequestHandler {
     }
 
 
-    public void updatePassword()
-    {
+    public void updatePassword(Integer id, String password) {
+        PreparedStatement statement = null;
+        try {
+            this.connect();
+            statement = connexion.prepareStatement("UPDATE user SET password=MD5(?) WHERE id=?;");
+            statement.setString(1, password);
+            statement.setInt(2, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
