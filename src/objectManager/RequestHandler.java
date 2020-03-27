@@ -151,7 +151,7 @@ public class RequestHandler {
         return id ;
     }
 
-    private Player getPlayerFromId(Integer id)
+    public Player getPlayerFromId(Integer id)
     {
         PreparedStatement statement = null;
         ResultSet result=null;
