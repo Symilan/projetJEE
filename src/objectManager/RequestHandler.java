@@ -213,8 +213,8 @@ public class RequestHandler {
             /* Création de l'objet gérant les requêtes */
             statement = connexion.prepareStatement("INSERT INTO game_session(id,id_game,id_player,duration,beginning_date,ending_date,score) " +
                     "VALUES (?,?,?,?,?,?,?);");
-            playerStatement = connexion.prepareStatement("UPDATE user SET nb_game_sessions = nb_game_sessions+1 WHERE id=?");
-            gameStatement =  connexion.prepareStatement("UPDATE game SET nb_played_sessions = nb_game_sessions+1 WHERE id=?");
+            playerStatement = connexion.prepareStatement("UPDATE user SET nb_game_sessions = ? WHERE id=?");
+            gameStatement =  connexion.prepareStatement("UPDATE game SET nb_played_sessions = ? WHERE id=?");
             statement.setInt(1, id);
             statement.setInt(2,gameSession.getGame().getId());
             statement.setInt(3,gameSession.getPlayer().getId());
@@ -222,8 +222,12 @@ public class RequestHandler {
             statement.setDate(5, (Date) gameSession.getBeginningDate());
             statement.setDate(6, (Date) gameSession.getEndingDate());
             statement.setInt(7,gameSession.getScore());
-            playerStatement.setInt(1,gameSession.getPlayer().getId());
-            gameStatement.setInt(1,gameSession.getGame().getId());
+            gameSession.getPlayer().setNbPlayedSessions(gameSession.getPlayer().getNbPlayedSessions()+1);
+            playerStatement.setInt(1,gameSession.getPlayer().getNbPlayedSessions());
+            playerStatement.setInt(2,gameSession.getPlayer().getId());
+            gameSession.getGame().setNbPlayedSessions(gameSession.getGame().getNbPlayedSessions()+1);
+            gameStatement.setInt(1,gameSession.getGame().getNbPlayedSessions());
+            gameStatement.setInt(2,gameSession.getGame().getId());
             /* Exécution d'une requête de lecture */
             statement.execute();
             playerStatement.executeUpdate();
