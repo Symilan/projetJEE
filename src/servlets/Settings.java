@@ -12,8 +12,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import model.*;
-import static utilitaire.CookieFactory.COOKIE_PLAYER;
-import static utilitaire.CookieFactory.getCookieValue;
+
+import static utilitaire.CookieFactory.*;
 import static utilitaire.RegistrationForm.*;
 
 public class Settings extends HttpServlet {
@@ -33,12 +33,15 @@ public class Settings extends HttpServlet {
             valeurs.put(CHAMP_DATENAISSANCE_ANNEE, player.getBirthDate().substring(6,9));
             valeurs.put(CHAMP_PREFEREDGAMES, player.getPreferedGames());
             req.setAttribute("valeurs", valeurs);
+            setCookie(resp, COOKIE_PLAYER, player.getId().toString(), COOKIE_MAX_AGE);
 
             this.getServletContext().getRequestDispatcher("/WEB-INF/settings.jsp").forward(req, resp);
         }
 
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
         {
+            String idplayer = getCookieValue(req, COOKIE_PLAYER);
+            Player player = RequestHandler.getRequestHandler().getPlayerFromId(Integer.parseInt(idplayer));
             Map<String, String> erreurs = new HashMap<String, String>();
             Map<String, String> valeurs = new HashMap<String, String>();
             String pseudo = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_PSEUDO);
@@ -87,6 +90,7 @@ public class Settings extends HttpServlet {
                 this.getServletContext().getRequestDispatcher("/WEB-INF/settings.jsp").forward(req, resp);
             }
 
+            setCookie(resp, COOKIE_PLAYER, player.getId().toString(), COOKIE_MAX_AGE);
 
         }
 }

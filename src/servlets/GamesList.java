@@ -29,9 +29,22 @@ public class GamesList extends HttpServlet {
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 
-        System.out.println(req.getParameter("Minecraft"));
-        this.getServletContext().getRequestDispatcher("/WEB-INF/gamesList.jsp").forward(req, resp);
+        if (req.getParameter("Minecraft") != null)
+        {
+            req.setAttribute("selectedGame",  RequestHandler.getRequestHandler().getEnabledGames().get(0));
+        }
+        else if (req.getParameter("Weebland") != null)
+        {
+            req.setAttribute("selectedGame",  RequestHandler.getRequestHandler().getEnabledGames().get(1));
+        }
+        else if (req.getParameter("BomberMan") != null)
+        {
+            req.setAttribute("selectedGame",  RequestHandler.getRequestHandler().getEnabledGames().get(2));
+        }
 
+        req.setAttribute("gameList", RequestHandler.getRequestHandler().getEnabledGames());
+        req.setAttribute("player", new Player(0, "xX_D4rk_S4suk3_Xx", "sasuke@gmail.com", "04/12/1969", "Minecraft", 69, new Date(), true));
+        this.getServletContext().getRequestDispatcher("/WEB-INF/gamesList.jsp").forward(req, resp);
     }
 
 
