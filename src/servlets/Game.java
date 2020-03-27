@@ -1,5 +1,6 @@
 package servlets;
 
+import objectManager.Factory;
 import objectManager.RequestHandler;
 
 import javax.servlet.ServletException;

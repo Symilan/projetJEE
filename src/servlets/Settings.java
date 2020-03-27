@@ -73,11 +73,28 @@ public class Settings extends HttpServlet {
                 }
                 valeurs.put(CHAMP_PSEUDO, pseudo);
 
-                try {
-                    validationPassword_opt(password, conf_password);
-                } catch (Exception e) {
-                    erreurs.put(CHAMP_MOTDEPASSE, e.getMessage());
+
+                if (oldPassword != null)
+                {
+                    try
+                    {
+                        RequestHandler.getRequestHandler().authenticate(RequestHandler.getRequestHandler().getPlayerFromId(Integer.parseInt(idplayer)).getPseudo(), oldPassword);
+                    }
+                    catch (Exception e)
+                    {
+                        e.printStackTrace();
+                    }
+                    try {
+                        validationPassword_opt(password, conf_password);
+                    } catch (Exception e) {
+                        erreurs.put(CHAMP_MOTDEPASSE, e.getMessage());
+                    }
                 }
+                else if (password != null)
+                {
+                    erreurs.put(CHAMP_MOTDEPASSE, "Vous ne pouvez pas changer de mot de passe sans rentrer l'ancien.");
+                }
+
 
                 valeurs.put(CHAMP_DATENAISSANCE_JOUR, player.getBirthDate().substring(0,2));
                 valeurs.put(CHAMP_DATENAISSANCE_MOIS, player.getBirthDate().substring(3,5));
@@ -90,6 +107,10 @@ public class Settings extends HttpServlet {
                         RequestHandler.getRequestHandler().updatePlayer(Integer.parseInt(idplayer), pseudo, preferedGames, mail);
                     } catch (Exception e) {
                         e.printStackTrace();
+                    }
+                    if (password != null && oldPassword != null)
+                    {
+                        RequestHandler.getRequestHandler().updatePassword(Integer.parseInt(idplayer), password);
                     }
                     req.setAttribute("valeurs", valeurs);
                     this.getServletContext().getRequestDispatcher("/WEB-INF/settings.jsp").forward(req, resp);
