@@ -236,20 +236,33 @@ public class RequestHandler {
         return true ;
     }
 
-    public void updatePlayer(Integer id, String pseudo, String preferedGames, String mail) throws Exception {
+    public void updatePlayer(Integer id, String pseudo, String preferedGames, String mail){
         PreparedStatement statement = null;
         this.connect();
+        try {
         statement = connexion.prepareStatement("UPDATE user SET pseudo=?, prefered_games=?, mail=? WHERE id=?;");
         statement.setString(1, pseudo);
         statement.setString(2, preferedGames);
         statement.setString(3, mail);
         statement.setInt(4, id);
         statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 
-    public void updatePassword()
-    {
+    public void updatePassword(Integer id, String password) {
+        PreparedStatement statement = null;
+        try {
+            this.connect();
+            statement = connexion.prepareStatement("UPDATE user SET password=MD5(?) WHERE id=?;");
+            statement.setString(1, password);
+            statement.setInt(2, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
