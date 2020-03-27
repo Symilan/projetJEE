@@ -236,6 +236,54 @@ public class RequestHandler {
         return true ;
     }
 
+    public void updatePlayer(Integer id, String pseudo, String preferedGames, String mail) throws Exception {
+        PreparedStatement statement = null;
+        this.connect();
+        Player otherPlayer = new RequestHandler().getPlayerFromPseudo(pseudo);
+        if (otherPlayer != null && otherPlayer.getId() != id) {
+            throw new Exception("Ce joueur existe déjà");
+        }
+        statement = connexion.prepareStatement("UPDATE user SET pseudo=?, prefered_games=?, mail=? WHERE id=?;");
+        statement.setString(1, pseudo);
+        statement.setString(2, preferedGames);
+        statement.setString(3, mail);
+        statement.setInt(4, id);
+        statement.executeUpdate();
+    }
+
+
+    public void updatePassword()
+    {
+
+    }
+
+    public Player getPlayerFromPseudo(String pseudo)
+    {
+        PreparedStatement statement = null;
+        ResultSet result=null;
+        Player player=null;
+        try{
+            this.connect();
+            statement=connexion.prepareStatement("SELECT * FROM user WHERE pseudo=?;");
+            statement.setString(1,pseudo);
+            result=statement.executeQuery();
+            while (result.next()){
+                Integer id = result.getInt("id");
+                String mail = result.getString("mail");
+                String birthDate = result.getString("birth_date");
+                String preferedGames = result.getString("prefered_games");
+                Integer nbPlayedSessions = result.getInt("nb_game_sessions");
+                Date registerDate = result.getDate("register_date");
+                Boolean banned = (result.getString("banned")=="inactive");
+                player = Factory.getFactory().createPlayer(id,pseudo,mail,birthDate,preferedGames,nbPlayedSessions,registerDate,banned);
+            }
+            connexion.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return player;
+    }
+
     public static void main(String[] args) {
         Player noob ;
         RequestHandler req = new RequestHandler();
