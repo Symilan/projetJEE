@@ -57,6 +57,8 @@ public class Settings extends HttpServlet {
                 String conf_password = RegistrationForm.getValeurChamp(req, CHAMP_CONF_MOTDEPASSE);
                 String preferedGames = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_PREFEREDGAMES);
 
+
+
                 try {
                     validationMail(mail);
                 } catch (Exception e) {
@@ -65,7 +67,7 @@ public class Settings extends HttpServlet {
                 valeurs.put(CHAMP_MAIL, mail);
 
                 try {
-                    validationPseudo(pseudo);
+                    validationPseudo(pseudo, Integer.parseInt(idplayer), false);
                 } catch (Exception e) {
                     erreurs.put(CHAMP_PSEUDO, e.getMessage());
                 }
@@ -77,11 +79,20 @@ public class Settings extends HttpServlet {
                     erreurs.put(CHAMP_MOTDEPASSE, e.getMessage());
                 }
 
-
+                valeurs.put(CHAMP_DATENAISSANCE_JOUR, player.getBirthDate().substring(0,2));
+                valeurs.put(CHAMP_DATENAISSANCE_MOIS, player.getBirthDate().substring(3,5));
+                valeurs.put(CHAMP_DATENAISSANCE_ANNEE, player.getBirthDate().substring(6,10));
                 valeurs.put(CHAMP_PREFEREDGAMES, preferedGames);
 
                 if (erreurs.isEmpty()) {
-                    //Modification enregistrées
+                    //Modification information joueur
+                    try {
+                        RequestHandler.getRequestHandler().updatePlayer(Integer.parseInt(idplayer), pseudo, preferedGames, mail);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    req.setAttribute("valeurs", valeurs);
+                    this.getServletContext().getRequestDispatcher("/WEB-INF/settings.jsp").forward(req, resp);
                 } else {
                     req.setAttribute("erreurs", erreurs);
                     req.setAttribute("valeurs", valeurs);

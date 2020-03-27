@@ -239,10 +239,6 @@ public class RequestHandler {
     public void updatePlayer(Integer id, String pseudo, String preferedGames, String mail) throws Exception {
         PreparedStatement statement = null;
         this.connect();
-        Player otherPlayer = new RequestHandler().getPlayerFromPseudo(pseudo);
-        if (otherPlayer != null && otherPlayer.getId() != id) {
-            throw new Exception("Ce joueur existe déjà");
-        }
         statement = connexion.prepareStatement("UPDATE user SET pseudo=?, prefered_games=?, mail=? WHERE id=?;");
         statement.setString(1, pseudo);
         statement.setString(2, preferedGames);

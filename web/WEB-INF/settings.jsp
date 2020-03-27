@@ -21,7 +21,7 @@
             <span class="erreur">${erreurs['pseudo']}</span>
         </div>
         <div id="tfa_6980290243482-D" class="registration_paragraph">
-            <label id="tfa_6980290243482-L" for="tfa_6980290243482">Adresse mail :</label><br><input type="text" id="tfa_6980290243482" name="mail" value="${valeurs['mailAdress']}" title="Adresse mail" style="width: 100%">
+            <label id="tfa_6980290243482-L" for="tfa_6980290243482">Adresse mail :</label><br><input type="text" id="tfa_6980290243482" name="mailAdress" value="${valeurs['mailAdress']}" title="Adresse mail" style="width: 100%">
             <span class="erreur">${erreurs['mailAdress']}</span>
         </div>
         <div id="tfa_6980290243489-D" class="registration_paragraph">

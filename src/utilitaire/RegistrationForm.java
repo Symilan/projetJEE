@@ -1,5 +1,6 @@
 package utilitaire;
 import model.Player;
+import objectManager.RequestHandler;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +15,7 @@ public interface RegistrationForm {
     String CHAMP_MOTDEPASSE = "password";
     String CHAMP_CONF_MOTDEPASSE = "passwordConfirmed";
     String CHAMP_ANCIEN_MOTDEPASSE = "oldPassword";
-    String CHAMP_PREFEREDGAMES = "preferredGames";
+    String CHAMP_PREFEREDGAMES = "preferedGames";
     String CHAMP_DATENAISSANCE_JOUR = "birthdate_day";
     String CHAMP_DATENAISSANCE_MOIS = "birthdate_month";
     String CHAMP_DATENAISSANCE_ANNEE = "birthdate_year";
@@ -79,7 +80,7 @@ public interface RegistrationForm {
 
 
 
-    static void validationPseudo(String pseudo) throws Exception
+    static void validationPseudo(String pseudo, int idplayer,  boolean creation) throws Exception
     {
         if (pseudo != null && pseudo.trim().length() != 0)
         {
@@ -90,6 +91,10 @@ public interface RegistrationForm {
             else if (pseudo.trim().length() > 17)
             {
                 throw new Exception("Désolé, le pseudo est trop long");
+            }
+            Player otherPlayer = RequestHandler.getRequestHandler().getPlayerFromPseudo(pseudo);
+            if (otherPlayer != null && (creation || otherPlayer.getId() != idplayer)) {
+                throw new Exception("Ce joueur existe déjà");
             }
         }
         else
