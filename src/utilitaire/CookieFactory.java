@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public interface CookieFactory {
     String       COOKIE_PLAYER  = "player";
+    String       COOKIE_GAME    = "game";
     int          COOKIE_MAX_AGE = 60 * 60 * 24 * 31;
 
     static void setCookie(HttpServletResponse resp, String nom, String valeur, int maxAge)
