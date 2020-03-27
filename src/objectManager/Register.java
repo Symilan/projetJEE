@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Register {
-
     private final HashMap<Integer, Game> GamesList;
     private final HashMap<Integer, Player> PlayersList;
     private final HashMap<Integer, GameSession> GameSessionsList;
@@ -74,4 +73,5 @@ public class Register {
             throw new Exception("La session de jeu est déjà dans le Register");
         }
     }
+
 }
