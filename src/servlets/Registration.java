@@ -12,16 +12,39 @@ import objectManager.RequestHandler;
 
 import static utilitaire.RegistrationForm.*;
 
-
+/**
+ * This class represent the Registration servlet
+ */
 public class Registration extends HttpServlet {
+
+    /**
+     * GET Method
+     * GET Method is called when the user enter the page
+     * @param req                   The HTTP request
+     * @param resp                  The HTTP response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.getServletContext().getRequestDispatcher("/WEB-INF/registration.jsp").forward(req, resp);
     }
 
+    /**
+     * POST Method
+     * POST Method is called when the user press the "Confirmation" button.
+     * It reads all the field and then create a player in the database.
+     * @param req                   The HTTP request
+     * @param resp                  The HTTP response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
+        /*
+        It reads every field
+         */
         Map<String, String> erreurs = new HashMap<String, String>();
         Map<String, String> valeurs = new HashMap<String, String>();
         String pseudo = getValeurChamp(req, CHAMP_PSEUDO);
@@ -34,6 +57,9 @@ public class Registration extends HttpServlet {
         String birthDate_year = getValeurChamp(req, CHAMP_DATENAISSANCE_ANNEE);
         String birthDate = birthDate_day + "/" + birthDate_month + "/" + birthDate_year;
 
+        /*
+        It tries if every field is well filled
+         */
         try
         {
             validationMail(mail);
@@ -75,6 +101,9 @@ public class Registration extends HttpServlet {
 
         valeurs.put(CHAMP_PREFEREDGAMES, preferedGames);
 
+        /*
+        If there is no error, it creates a player and add it to the database, then redirect the player towards the authentification page
+         */
         if (erreurs.isEmpty())
         {
             RequestHandler.getRequestHandler().register(pseudo, mail, password, preferedGames, birthDate);
@@ -82,6 +111,9 @@ public class Registration extends HttpServlet {
             this.getServletContext().getRequestDispatcher("/WEB-INF/authentification.jsp").forward(req, resp);
 
         } else
+            /*
+            Else, it reload the page with errors set and field already filled as the user filled them.
+             */
         {
             req.setAttribute("erreurs", erreurs);
             req.setAttribute("valeurs", valeurs);

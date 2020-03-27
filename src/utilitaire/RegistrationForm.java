@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Date;
 
+/**
+ * This interface RegistrationForm is used to implement every tools to manipulate Form
+ */
 public interface RegistrationForm {
     String CHAMP_PSEUDO = "pseudo";
     String CHAMP_MAIL = "mailAdress";
@@ -21,6 +24,12 @@ public interface RegistrationForm {
     String CHAMP_DATENAISSANCE_ANNEE = "birthdate_year";
     String CHAMP_NBSESSION = "nbPlayedSessions";
 
+    /**
+     * Method to get the value of a field, what it contains
+     * @param request               HTTP request
+     * @param nomChamp              Name of the field
+     * @return                      Value of the field
+     */
     static String getValeurChamp(HttpServletRequest request, String nomChamp) {
         String valeur = request.getParameter(nomChamp);
         if (valeur == null || valeur.trim().length() == 0)
@@ -33,7 +42,11 @@ public interface RegistrationForm {
         }
     }
 
-
+    /**
+     * Method to check if a mail is valid
+     * @param mail              Mail we want to check
+     * @throws Exception        Throw an exception if the mail isn't valid.
+     */
     static void validationMail(String mail) throws Exception
     {
         if (mail != null && mail.trim().length() != 0)
@@ -48,6 +61,12 @@ public interface RegistrationForm {
         }
     }
 
+    /**
+     * Method to check is a password is valid and if it is well confirmed
+     * @param password          Password we want to check
+     * @param conf_password     Confirmation password we want to check
+     * @throws Exception        Throws an exception is password and conf_password are not the same, of if the password is way too weak
+     */
     static void validationPassword(String password, String conf_password) throws Exception
     {
         if (password != null && password.trim().length() != 0 && conf_password != null && conf_password.trim().length() != 0)
@@ -67,6 +86,13 @@ public interface RegistrationForm {
         }
     }
 
+    /**
+     * Method to check is a password is valid and if it is well confirmed, but the field can be empty if we don't want to change the password.
+     * Used in Settings
+     * @param password          Password we want to check
+     * @param conf_password     Confirmation password we want to check
+     * @throws Exception        Throws an exception is password and conf_password are not the same, of if the password is way too weak
+     */
     static void validationPassword_opt(String password, String conf_password) throws Exception
     {
         if (!password.equals(conf_password))
@@ -80,7 +106,13 @@ public interface RegistrationForm {
     }
 
 
-
+    /**
+     * Method used to check is a pseudo is valid
+     * @param pseudo                Pseudo that we want to check
+     * @param idplayer              Id of the player who want to check a pseudo, used only in modification try
+     * @param creation              If the check is on a creation or a modification
+     * @throws Exception            Throws an exception is the pseudo is too long or too short, and if another player already got this pseudo
+     */
     static void validationPseudo(String pseudo, int idplayer,  boolean creation) throws Exception
     {
         if (pseudo != null && pseudo.trim().length() != 0)
@@ -104,6 +136,13 @@ public interface RegistrationForm {
         }
     }
 
+    /**
+     * Method used to check if a birth date is valid
+     * @param dateDay               The day
+     * @param dateMonth             The month
+     * @param dateYear              The year
+     * @throws Exception            Throws an exception if the birth date is not valid (e.g : 32-12-1997). It is considered invalid if year < 1900
+     */
     static void validationDate(String dateDay, String dateMonth, String dateYear) throws Exception
     {
         if (dateDay != null && dateMonth != null && dateYear != null)
