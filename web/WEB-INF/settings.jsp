@@ -44,7 +44,7 @@
         </div>
         <div id="tfa_6980290244520-D" class="registration_paragraph">
             <label id="tfa_6980290244520-L" for="tfa_6980290244520">Nombre de parties jouées :</label><br>
-            <input type="text" id="tfa_6980290244520" name="nbPlayedSessions" value="${player['nbPlayedSessions']}" autoformat="##" title="nbPlayedSessions " disabled style="width: 100%"></div>
+            <input type="text" id="tfa_6980290244520" name="nbPlayedSessions" value="${valeurs['nbPlayedSessions']}" autoformat="##" title="nbPlayedSessions " disabled style="width: 100%"></div>
         </div><br>
         <input type="submit" value="Modifier" class="button">
         <a href="/JEEux_fr/listeDesJeux"><input type="button" value="Annuler" class="button"></a>

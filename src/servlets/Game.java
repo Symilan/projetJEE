@@ -1,5 +1,6 @@
 package servlets;
 
+import model.GameSession;
 import objectManager.Factory;
 import objectManager.RequestHandler;
 

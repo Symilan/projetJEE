@@ -19,6 +19,7 @@ public interface RegistrationForm {
     String CHAMP_DATENAISSANCE_JOUR = "birthdate_day";
     String CHAMP_DATENAISSANCE_MOIS = "birthdate_month";
     String CHAMP_DATENAISSANCE_ANNEE = "birthdate_year";
+    String CHAMP_NBSESSION = "nbPlayedSessions";
 
     static String getValeurChamp(HttpServletRequest request, String nomChamp) {
         String valeur = request.getParameter(nomChamp);

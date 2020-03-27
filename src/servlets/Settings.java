@@ -24,7 +24,6 @@ public class Settings extends HttpServlet {
             String idplayer = getCookieValue(req, COOKIE_PLAYER);
 
             Player player = RequestHandler.getRequestHandler().getPlayerFromId(Integer.parseInt(idplayer));
-            System.out.println(player.getPreferedGames());
 
             valeurs.put(CHAMP_PSEUDO, player.getPseudo());
             valeurs.put(CHAMP_MAIL, player.getMail());
@@ -32,7 +31,7 @@ public class Settings extends HttpServlet {
             valeurs.put(CHAMP_DATENAISSANCE_MOIS, player.getBirthDate().substring(3,5));
             valeurs.put(CHAMP_DATENAISSANCE_ANNEE, player.getBirthDate().substring(6,10));
             valeurs.put(CHAMP_PREFEREDGAMES, player.getPreferedGames());
-            System.out.println(valeurs.toString());
+            valeurs.put(CHAMP_NBSESSION, player.getNbPlayedSessions().toString());
             req.setAttribute("valeurs", valeurs);
             setCookie(resp, COOKIE_PLAYER, player.getId().toString(), COOKIE_MAX_AGE);
 
@@ -101,6 +100,7 @@ public class Settings extends HttpServlet {
                 valeurs.put(CHAMP_DATENAISSANCE_MOIS, player.getBirthDate().substring(3,5));
                 valeurs.put(CHAMP_DATENAISSANCE_ANNEE, player.getBirthDate().substring(6,10));
                 valeurs.put(CHAMP_PREFEREDGAMES, preferedGames);
+                valeurs.put(CHAMP_NBSESSION, player.getNbPlayedSessions().toString());
 
                 if (erreurs.isEmpty()) {
                     //Modification information joueur
