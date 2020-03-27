@@ -8,18 +8,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Date;
 
-public class RegistrationForm {
-    public static final String CHAMP_PSEUDO = "pseudo";
-    public static final String CHAMP_MAIL = "mailAdress";
-    public static final String CHAMP_MOTDEPASSE = "password";
-    public static final String CHAMP_CONF_MOTDEPASSE = "passwordConfirmed";
-    public static final String CHAMP_ANCIEN_MOTDEPASSE = "oldPassword";
-    public static final String CHAMP_PREFEREDGAMES = "preferredGames";
-    public static final String CHAMP_DATENAISSANCE_JOUR = "birthdate_day";
-    public static final String CHAMP_DATENAISSANCE_MOIS = "birthdate_month";
-    public static final String CHAMP_DATENAISSANCE_ANNEE = "birthdate_year";
+public interface RegistrationForm {
+    String CHAMP_PSEUDO = "pseudo";
+    String CHAMP_MAIL = "mailAdress";
+    String CHAMP_MOTDEPASSE = "password";
+    String CHAMP_CONF_MOTDEPASSE = "passwordConfirmed";
+    String CHAMP_ANCIEN_MOTDEPASSE = "oldPassword";
+    String CHAMP_PREFEREDGAMES = "preferredGames";
+    String CHAMP_DATENAISSANCE_JOUR = "birthdate_day";
+    String CHAMP_DATENAISSANCE_MOIS = "birthdate_month";
+    String CHAMP_DATENAISSANCE_ANNEE = "birthdate_year";
 
-    public static String getValeurChamp(HttpServletRequest request, String nomChamp) {
+    static String getValeurChamp(HttpServletRequest request, String nomChamp) {
         String valeur = request.getParameter(nomChamp);
         if (valeur == null || valeur.trim().length() == 0)
         {
@@ -32,7 +32,7 @@ public class RegistrationForm {
     }
 
 
-    public static void validationMail(String mail) throws Exception
+    static void validationMail(String mail) throws Exception
     {
         if (mail != null && mail.trim().length() != 0)
         {
@@ -46,7 +46,7 @@ public class RegistrationForm {
         }
     }
 
-    public static void validationPassword(String password, String conf_password) throws Exception
+    static void validationPassword(String password, String conf_password) throws Exception
     {
         if (password != null && password.trim().length() != 0 && conf_password != null && conf_password.trim().length() != 0)
         {
@@ -65,7 +65,21 @@ public class RegistrationForm {
         }
     }
 
-    public static void validationPseudo(String pseudo) throws Exception
+    static void validationPassword_opt(String password, String conf_password) throws Exception
+    {
+        if (!password.equals(conf_password))
+        {
+            throw new Exception("Mot de passe et confirmation différents");
+        }
+        else if (password.trim().length() < 5)
+        {
+            throw new Exception("Le mot de passe n'est pas assez long");
+        }
+    }
+
+
+
+    static void validationPseudo(String pseudo) throws Exception
     {
         if (pseudo != null && pseudo.trim().length() != 0)
         {
@@ -84,7 +98,7 @@ public class RegistrationForm {
         }
     }
 
-    public static void validationDate(String dateDay, String dateMonth, String dateYear) throws Exception
+    static void validationDate(String dateDay, String dateMonth, String dateYear) throws Exception
     {
         if (dateDay != null && dateMonth != null && dateYear != null)
         {

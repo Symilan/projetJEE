@@ -72,7 +72,7 @@ public class Settings extends HttpServlet {
                 valeurs.put(CHAMP_PSEUDO, pseudo);
 
                 try {
-                    validationPassword(password, conf_password);
+                    validationPassword_opt(password, conf_password);
                 } catch (Exception e) {
                     erreurs.put(CHAMP_MOTDEPASSE, e.getMessage());
                 }

@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import objectManager.RequestHandler;
-import utilitaire.*;
 
 import static utilitaire.RegistrationForm.*;
 
@@ -25,14 +24,14 @@ public class Registration extends HttpServlet {
     {
         Map<String, String> erreurs = new HashMap<String, String>();
         Map<String, String> valeurs = new HashMap<String, String>();
-        String pseudo = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_PSEUDO);
-        String mail = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_MAIL);
-        String password = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_MOTDEPASSE);
-        String conf_password = RegistrationForm.getValeurChamp(req, CHAMP_CONF_MOTDEPASSE);
-        String preferedGames = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_PREFEREDGAMES);
-        String birthDate_day = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_DATENAISSANCE_JOUR);
-        String birthDate_month = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_DATENAISSANCE_MOIS);
-        String birthDate_year = RegistrationForm.getValeurChamp(req, RegistrationForm.CHAMP_DATENAISSANCE_ANNEE);
+        String pseudo = getValeurChamp(req, CHAMP_PSEUDO);
+        String mail = getValeurChamp(req, CHAMP_MAIL);
+        String password = getValeurChamp(req, CHAMP_MOTDEPASSE);
+        String conf_password = getValeurChamp(req, CHAMP_CONF_MOTDEPASSE);
+        String preferedGames = getValeurChamp(req, CHAMP_PREFEREDGAMES);
+        String birthDate_day = getValeurChamp(req, CHAMP_DATENAISSANCE_JOUR);
+        String birthDate_month = getValeurChamp(req, CHAMP_DATENAISSANCE_MOIS);
+        String birthDate_year = getValeurChamp(req, CHAMP_DATENAISSANCE_ANNEE);
         String birthDate = birthDate_day + "/" + birthDate_month + "/" + birthDate_year;
 
         try
