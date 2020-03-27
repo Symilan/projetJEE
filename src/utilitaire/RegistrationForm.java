@@ -13,6 +13,7 @@ public class RegistrationForm {
     public static final String CHAMP_MAIL = "mailAdress";
     public static final String CHAMP_MOTDEPASSE = "password";
     public static final String CHAMP_CONF_MOTDEPASSE = "passwordConfirmed";
+    public static final String CHAMP_ANCIEN_MOTDEPASSE = "oldPassword";
     public static final String CHAMP_PREFEREDGAMES = "preferredGames";
     public static final String CHAMP_DATENAISSANCE_JOUR = "birthdate_day";
     public static final String CHAMP_DATENAISSANCE_MOIS = "birthdate_month";
