@@ -42,7 +42,6 @@
         </div>
         <input type="submit" value="Confirmer" id="Confirmation" class="button">
         <a href="/JEEux_fr/accueil"><input type="button" value="Annuler" class="button"></a>
-        <a href="/JEEux_fr/authentification"><input type="button" value="skip (debug)" class="button"></a>
     </div>
 </fieldset>
 </form>

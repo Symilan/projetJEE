@@ -24,7 +24,6 @@
         <a href="/JEEux_fr/enregistrement" class="hyperlink"><p>Pas encore de compte ? Inscris toi...</p></a>
         <input type="submit" value="S'authentifier" class="button">
         <a href="/JEEux_fr/accueil" ><input type="button" value="Annuler" class="button"></a>
-        <a href="/JEEux_fr/listeDesJeux"><input type="button" value="skip(debug)" class="button"></a>
     </div>
 </fieldset>
 </form>
