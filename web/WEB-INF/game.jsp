@@ -9,8 +9,10 @@
 <html>
 <head>
     <title>Jeu</title>
+    <link rel="stylesheet" href="ressources/style.css" />
 </head>
 <body>
-    <input type="button" value="Fin de jeu">
+    <div>${player} joue à ${gameName}</div>
+    <a href="/JEEux_fr/listeDesJeux"><input type="button" value="Fin de jeu"></a>
 </body>
 </html>
